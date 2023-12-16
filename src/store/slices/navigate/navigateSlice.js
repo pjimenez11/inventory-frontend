@@ -28,27 +28,36 @@ const adminNavigate = [
 ];
 
 
-const chefNavigate = [
+const custodioNavigate = [
     {
-        name: "Home",
-        href: "/restaurant/home",
-        icon: "GoHome",
+        name: "Laboratorios",
+        href: "/inventory/laboratorios",
+        icon: "SiGoogleclassroom",
         current: false,
     },
     {
-        name: "Ordenes",
-        href: "/restaurant/ordenes",
-        icon: "HiOutlineQueueList",
-        current: true,
+        name: "Bienes",
+        href: "/inventory/bienes",
+        icon: "FaComputer",
+        current: false,
+    },
+    {
+        name: "Sugerencias",
+        href: "/inventory/sugerencias",
+        icon: "MdOutlineSettingsSuggest",
+        current: false,
     },
 ];
+
+
+
 
 export const navigateSlice = createSlice({
     name: 'navigate',
     initialState: {
         navigateOptions: {
             admin: adminNavigate,
-            chef: chefNavigate
+            custodio: custodioNavigate,
         }
     },
     reducers: {

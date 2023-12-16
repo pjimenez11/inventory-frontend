@@ -21,7 +21,7 @@ export default function SidebarDestok() {
 
   return (
     <aside
-      className={`fixed  left-2 top-2 bottom-2 md:flex md:flex-1 flex-col w-64 rounded-md z-50 px-4 py-8 overflow-y-auto bg-gray-500 border5-r border-slate-0  transition-all`}
+      className={`fixed h-full w-64 z-50 px-4 py-8 overflow-y-auto bg-oxford-blue-900 transition-all`}
     >
       <div className="flex items-center justify-between">
         <a href="#" className="flex items-center">
@@ -37,8 +37,8 @@ export default function SidebarDestok() {
               <NavLink
                 key={item.name}
                 to={item.href}
-                className={`flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform rounded-md ${
-                  item.current ? "bg-white text-black" : " text-white"
+                className={`flex items-center px-4 py-2 mt-5 font-bold transition-colors duration-300 transform rounded-md ${
+                  item.current ? "bg-rhino-900  text-blue-500 " : " text-gray-400"
                 } `}
                 onClick={() => {
                   handleNavigate(item.href);

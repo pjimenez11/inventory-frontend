@@ -1,16 +1,17 @@
 import { Navigate, Route, Routes } from "react-router";
 import Header from "../components/layout/Header";
 import SidebarDestok from "../components/layout/SidebarDestok";
+import { Laboratories } from "../components/laboratories/Laboratories";
 
 export default function AdminRoute() {
   return (
     <>
       <Header />
       <SidebarDestok />
-      <div className="fixed left-0 md:left-[273px] top-16 md:top-20 bottom-16 md:bottom-2 right-0 md:right-2 overflow-auto md:rounded-md bg-gray-50 transition-all p-2">
-        <main className="w-full ">
+      <div className="fixed left-0 md:left-64 top-16 bottom-0 right-0 overflow-auto md:rounded-ss-3xl bg-oxford-blue-950 transition-all p-6">
+        <main className="w-full">
           <Routes>
-            <Route path="/laboratorios" element={<h1>Laboratorios</h1>} />
+            <Route path="/laboratorios" element={<Laboratories/>} />
             <Route path="/bienes" element={<h1>Bienes</h1>} />
             <Route path="/sugerencias" element={<h1>Seguerencias</h1>} />
             <Route path="/usuarios" element={<h1>Usuarios</h1>} />

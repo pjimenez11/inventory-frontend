@@ -3,7 +3,7 @@
 @layer base {
   html {
     @apply text-neutral-800;
-    @apply bg-gray-100;
+    @apply bg-oxford-blue-900;
   }
   html.dark {
     @apply text-neutral-50;
