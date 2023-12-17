@@ -23,11 +23,11 @@ export default function SidebarDestok() {
     <aside
       className={`fixed h-full w-64 z-50 px-4 py-8 overflow-y-auto bg-oxford-blue-900 transition-all`}
     >
-      <div className="flex items-center justify-between">
-        <a href="#" className="flex items-center">
-          <img className="w-auto h-14 sm:h-16" src="https://correoinstitucionalonline.info/wp-content/uploads/2021/10/logo-uta.png" alt="logo" />
-          <h1 className="font-semibold text-white">Inventory</h1>
-        </a>
+      <div className="flex items-centerb justify-center">
+        <NavLink to="/" className="flex items-center">
+          <img className="w-auto h-12" src="/logo.png" alt="logo" />
+          <h1 className="font-bold text-white ml-3">LabSync</h1>
+        </NavLink>
       </div>
       <div className="flex flex-col justify-between flex-1 mt-6">
         <nav>
@@ -37,7 +37,7 @@ export default function SidebarDestok() {
               <NavLink
                 key={item.name}
                 to={item.href}
-                className={`flex items-center px-4 py-2 mt-5 font-bold transition-colors duration-300 transform rounded-md ${
+                className={`flex items-center px-4 py-3 mt-5 font-bold transition-colors duration-300 transform rounded-md ${
                   item.current ? "bg-rhino-900  text-blue-500 " : " text-gray-400"
                 } `}
                 onClick={() => {

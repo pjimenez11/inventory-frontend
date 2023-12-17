@@ -16,16 +16,16 @@ export default function LoginPage() {
   };
 
   return (
-    <section className="min-h-screen w-full flex justify-center items-center p-4">
-      <div className="rounded-lg bg-white shadow-lg dark:bg-neutral-900 sm:w-8/12 lg:w-5/12 w-full h-min px-4 text-neutral-800 dark:text-neutral-200">
+    <section className="min-h-screen w-full flex justify-center items-center p-4 ">
+      <div className="rounded-lg bg-oxford-blue-950 shadow-lg sm:w-8/12 lg:w-5/12 w-full h-min px-4 text-neutral-100">
         <div className="text-center">
           <img
-            className="mx-auto w-48"
-            src="https://correoinstitucionalonline.info/wp-content/uploads/2021/10/logo-uta.png"
+            className="mx-auto w-48 mt-12"
+            src="/logo.png"
             alt="logo"
           />
           <h4 className="mb-6 mt-1 pb-1 text-xl font-semibold">
-            Control de inventario
+            Nosotros somos LabSync
           </h4>
         </div>
         <form onSubmit={onSingIn}>
@@ -33,14 +33,14 @@ export default function LoginPage() {
           <TEInput
             type="text"
             label="Nombre de usuario"
-            className="mb-4"
+            className="mb-4 text-neutral-100"
             onChange={(e) => setUser({ ...user, email: e.target.value })}
             required
           ></TEInput>
           <TEInput
             type={showPassword ? "text" : "password"}
             label="Contraseña"
-            className="mb-4"
+            className="mb-4 text-neutral-100"
             onChange={(e) => setUser({ ...user, password: e.target.value })}
             required
             minLength={6}
@@ -63,7 +63,7 @@ export default function LoginPage() {
           <div className="mb-12 pb-1 pt-1 text-center">
             <TERipple rippleColor="light" className="w-full">
               <button
-                className="bg-gray-500 inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-semibold uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]"
+                className="bg-oxford-blue-700 inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-semibold uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]"
                 type="submit"
               >
                 Iniciar
