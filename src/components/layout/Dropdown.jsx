@@ -21,7 +21,7 @@ export default function Dropdown() {
           {login.user?.first_name} {login.user?.last_name}
         </span>
       </TEDropdownToggle>
-      <TEDropdownMenu className="bg-oxford-blue-700 ">
+      <TEDropdownMenu className="bg-oxford-blue-800 ">
         <TEDropdownItem>
           <button
             onClick={handlerLogout}
