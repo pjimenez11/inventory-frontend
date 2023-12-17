@@ -33,14 +33,14 @@ export default function LoginPage() {
           <TEInput
             type="text"
             label="Nombre de usuario"
-            className="mb-4 text-neutral-100"
+            className="mb-4 text-white"
             onChange={(e) => setUser({ ...user, email: e.target.value })}
             required
           ></TEInput>
           <TEInput
             type={showPassword ? "text" : "password"}
             label="Contraseña"
-            className="mb-4 text-neutral-100"
+            className="mb-4 text-white"
             onChange={(e) => setUser({ ...user, password: e.target.value })}
             required
             minLength={6}

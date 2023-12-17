@@ -21,11 +21,11 @@ export default function Dropdown() {
           {login.user?.first_name} {login.user?.last_name}
         </span>
       </TEDropdownToggle>
-      <TEDropdownMenu className="bg-oxford-blue-800 ">
-        <TEDropdownItem>
+      <TEDropdownMenu className="bg-oxford-blue-700 ">
+        <TEDropdownItem className="bg-oxford-blue-700">
           <button
             onClick={handlerLogout}
-            className="block w-full min-w-[160px] cursor-pointer whitespace-nowrap bg-transparent 
+            className="block w-full min-w-[160px] cursor-pointer whitespace-nowrap bg-oxford-blue-700 
             px-4 py-2 text-sm text-left font-normal pointer-events-auto text-neutral-200
             hover:bg-oxford-blue-800 active:text-neutral-100 active:bg-oxford-blue-800 
             focus:bg-oxford-blue-800 focus:text-neutral-100 focus:outline-none active:no-underline"
