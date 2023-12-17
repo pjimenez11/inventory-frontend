@@ -14,7 +14,7 @@ export default function AdminRoute() {
           <Routes>
             <Route path="/laboratorios" element={<Laboratories/>} />
             <Route path="/bienes" element={<h1>Bienes</h1>} />
-            <Route path="/sugerencias" element={<LoandingSpiner />} />
+            <Route path="/sugerencias" element={<LoandingSpiner />                                                                                                                                    } />
             <Route path="/usuarios" element={<h1>Usuarios</h1>} />
             
             <Route path="/*" element={<Navigate to="/inventory/laboratorios" />} />
