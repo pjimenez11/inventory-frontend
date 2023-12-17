@@ -5,10 +5,6 @@
     @apply text-neutral-800;
     @apply bg-oxford-blue-900;
   }
-  html.dark {
-    @apply text-neutral-50;
-    @apply bg-neutral-800;
-  }
 }
 
 @tailwind components;
