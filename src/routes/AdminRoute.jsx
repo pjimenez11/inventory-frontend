@@ -4,6 +4,7 @@ import SidebarDestok from "../components/layout/SidebarDestok";
 import { Laboratories } from "../components/laboratories/Laboratories";
 import LoandingSpiner from "../components/layout/LoandingSpiner";
 import Suggestions from "../components/suggestions/Suggestions";
+import Users from "../components/users/Users";
 
 export default function AdminRoute() {
   return (
@@ -16,7 +17,7 @@ export default function AdminRoute() {
             <Route path="/laboratorios" element={<Laboratories/>} />
             <Route path="/bienes" element={<h1>Bienes</h1>} />
             <Route path="/sugerencias" element={<Suggestions />} />
-            <Route path="/usuarios" element={<h1>Usuarios</h1>} />
+            <Route path="/usuarios" element={<Users/>} />
             
             <Route path="/*" element={<Navigate to="/inventory/laboratorios" />} />
           </Routes>
