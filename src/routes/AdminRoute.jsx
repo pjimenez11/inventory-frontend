@@ -4,6 +4,7 @@ import SidebarDestok from "../components/layout/SidebarDestok";
 import { Laboratories } from "../components/laboratories/Laboratories";
 import LoandingSpiner from "../components/layout/LoandingSpiner";
 import EditLaboratory from "../components/laboratories/EditLaboratory";
+import { Assets } from "../components/assets/Assets";
 
 export default function AdminRoute() {
   return (
@@ -14,7 +15,7 @@ export default function AdminRoute() {
         <main className="flex flex-col w-full h-full p-6">
           <Routes>
             <Route path="/laboratorios" element={<Laboratories/>} />
-            <Route path="/bienes" element={<h1>Bienes</h1>} />
+            <Route path="/bienes" element={<Assets/>} />
             <Route path="/sugerencias" element={<LoandingSpiner />                                                                                                                                    } />
             <Route path="/usuarios" element={<h1>Usuarios</h1>} />
             <Route path="/laboratorios/:idLaboratory" element={<EditLaboratory/>} />
