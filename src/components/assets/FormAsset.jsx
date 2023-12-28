@@ -95,10 +95,9 @@ export default function FormAsset() {
 
       <div className="flex justify-end mt-6">
         <button
-          className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform 
-        bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
+          className="flex items-center justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 rounded-lg shrink-0 sm:w-auto gap-x-2  hover:bg-blue-500 bg-blue-600"
         >
-          Save
+          Guardar
         </button>
       </div>
     </form>

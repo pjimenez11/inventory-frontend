@@ -6,6 +6,8 @@ import LoandingSpiner from "../components/layout/LoandingSpiner";
 import EditLaboratory from "../components/laboratories/EditLaboratory";
 import NewLaboratory from "../components/laboratories/NewLaboratory";
 import { Assets } from "../components/assets/Assets";
+import NewAsset from "../components/assets/NewAsset";
+import EditAsset from "../components/assets/EditAsset";
 
 export default function AdminRoute() {
   return (
@@ -15,15 +17,23 @@ export default function AdminRoute() {
       <div className="fixed left-0 md:left-64 top-16 bottom-0 right-0 overflow-auto md:rounded-ss-3xl bg-oxford-blue-950 transition-all">
         <main className="flex flex-col w-full h-full p-6">
           <Routes>
-            <Route path="/laboratorios" element={<Laboratories/>} />
-            <Route path="/laboratorios/:idLaboratory" element={<EditLaboratory/>} />
-            <Route path="/laboratorios/nuevo/:id" element={<NewLaboratory/>} />
+            <Route path="/laboratorios" element={<Laboratories />} />
+            <Route
+              path="/laboratorios/:idLaboratory"
+              element={<EditLaboratory />}
+            />
+            <Route path="/laboratorios/nuevo/:id" element={<NewLaboratory />} />
 
-            <Route path="/bienes" element={<Assets/>} />
-            <Route path="/sugerencias" element={<LoandingSpiner />                                                                                                                                    } />
+            <Route path="/bienes" element={<Assets />} />
+            <Route path="/bienes/nuevo" element={<NewAsset />} />
+            <Route path="/bienes/editar/:id" element={<EditAsset />} />
+            <Route path="/sugerencias" element={<LoandingSpiner />} />
             <Route path="/usuarios" element={<h1>Usuarios</h1>} />
-            
-            <Route path="/*" element={<Navigate to="/inventory/laboratorios" />} />
+
+            <Route
+              path="/*"
+              element={<Navigate to="/inventory/laboratorios" />}
+            />
           </Routes>
         </main>
       </div>
