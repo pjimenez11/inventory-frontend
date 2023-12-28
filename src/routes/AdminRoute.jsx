@@ -5,6 +5,7 @@ import { Laboratories } from "../components/laboratories/Laboratories";
 import LoandingSpiner from "../components/layout/LoandingSpiner";
 import EditLaboratory from "../components/laboratories/EditLaboratory";
 import NewLaboratory from "../components/laboratories/NewLaboratory";
+import { Assets } from "../components/assets/Assets";
 
 export default function AdminRoute() {
   return (
@@ -18,7 +19,7 @@ export default function AdminRoute() {
             <Route path="/laboratorios/:idLaboratory" element={<EditLaboratory/>} />
             <Route path="/laboratorios/nuevo/:id" element={<NewLaboratory/>} />
 
-            <Route path="/bienes" element={<h1>Bienes</h1>} />
+            <Route path="/bienes" element={<Assets/>} />
             <Route path="/sugerencias" element={<LoandingSpiner />                                                                                                                                    } />
             <Route path="/usuarios" element={<h1>Usuarios</h1>} />
             
