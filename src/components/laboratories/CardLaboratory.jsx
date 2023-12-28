@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export default function CardLaboratory({ laboratory }) {
   return (
-    <div className="flex flex-col gap-2 bg-oxford-blue-900 rounded-lg p-5 shadow-xl hover:shadow-2xl transition-all transform hover:scale-105">
+    <div className="flex flex-col items-center justify-center gap-2 bg-oxford-blue-900 rounded-lg p-5 shadow-xl hover:shadow-2xl transition-all transform hover:scale-105">
       <h2 className="text-white text-center">{laboratory.name}</h2>
       <h3 className="text-gray-400 text-center">{laboratory.description}</h3>
       <div className="flex flex-row justify-center gap-3">

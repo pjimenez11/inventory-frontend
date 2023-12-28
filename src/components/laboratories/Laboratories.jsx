@@ -75,7 +75,7 @@ const initialState = [
   {
     id: 11,
     name: "Laboratorio 7",
-    description: "Redes",
+    description: "Redes del piso 4 sdfa a asdfasd dsfasdfa",
     computers: 25,
     building: 2,
   },
