@@ -1,5 +1,6 @@
 import { IoIosAddCircleOutline } from "react-icons/io";
 import CardLaboratory from "./CardLaboratory";
+import { NavLink } from "react-router-dom";
 
 const initialState = [
   {
@@ -114,9 +115,9 @@ export function Laboratories() {
               .map((laboratory) => (
                 <CardLaboratory key={laboratory.id} laboratory={laboratory} />
               ))}
-            <button className="flex items-center justify-center bg-oxford-blue-900 rounded-lg p-5 shadow-xl hover:shadow-2xl transition-all transform hover:scale-105">
+            <NavLink to={"/inventory/laboratorios/nuevo/1"} className="flex items-center justify-center bg-oxford-blue-900 rounded-lg p-5 shadow-xl hover:shadow-2xl transition-all transform hover:scale-105">
               <IoIosAddCircleOutline className="text-oxford-blue-500 w-auto h-20" />
-            </button>
+            </NavLink>
           </div>
         </div>
 
@@ -129,9 +130,9 @@ export function Laboratories() {
               .map((laboratory) => (
                 <CardLaboratory key={laboratory.id} laboratory={laboratory} />
               ))}
-            <button className="flex items-center justify-center bg-oxford-blue-900 rounded-lg p-5 shadow-xl hover:shadow-2xl transition-all transform hover:scale-105">
+            <NavLink to={"/inventory/laboratorios/nuevo/2"} className="flex items-center justify-center bg-oxford-blue-900 rounded-lg p-5 shadow-xl hover:shadow-2xl transition-all transform hover:scale-105">
               <IoIosAddCircleOutline className="text-oxford-blue-500 w-auto h-20" />
-            </button>
+            </NavLink>
           </div>
         </div>
       </div>
