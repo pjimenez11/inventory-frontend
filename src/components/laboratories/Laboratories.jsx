@@ -109,7 +109,7 @@ export function Laboratories() {
       <div className="flex flex-row h-full ">
         <div className="overflow-y-auto w-1/2 pr-6">
           <h2 className="text-white text-center">Edificio 1</h2>
-          <div className="grid grid-cols-3 gap-6 mt-6">
+          <div className="grid grid-cols-2 xl:grid-cols-3 gap-6 mt-6">
             {initialState
               .filter((laboratory) => laboratory.building === 1)
               .map((laboratory) => (
@@ -124,7 +124,7 @@ export function Laboratories() {
         <div className=" w-[1px] bg-oxford-blue-800"></div>
         <div className="overflow-y-auto overflow-x-hidden w-1/2 pl-6">
           <h2 className="text-white text-center">Edificio 2</h2>
-          <div className="grid grid-cols-3 gap-6 mt-6">
+          <div className="grid grid-cols-2 xl:grid-cols-3 gap-6 mt-6">
             {initialState
               .filter((laboratory) => laboratory.building === 2)
               .map((laboratory) => (
