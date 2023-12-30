@@ -22,7 +22,7 @@ export default function AdminRoute() {
               path="/laboratorios/:idLaboratory"
               element={<EditLaboratory />}
             />
-            <Route path="/laboratorios/nuevo/:id" element={<NewLaboratory />} />
+            <Route path="/laboratorios/nuevo/:idEdificio" element={<NewLaboratory />} />
 
             <Route path="/bienes" element={<Assets />} />
             <Route path="/bienes/nuevo" element={<NewAsset />} />

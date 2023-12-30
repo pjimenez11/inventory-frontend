@@ -10,7 +10,8 @@ export const laboratorySlice = createSlice({
     name: 'laboratory',
     initialState: {
         laboratories: [],
-        laboratory: {},
+        laboratory: initialLaboratory,
+        laboratoryEdit: {},
         loading: false,
         error: null
     },
@@ -28,11 +29,21 @@ export const laboratorySlice = createSlice({
             state.error = action.payload
         },
         laboratoryNew: (state, action) => {
-            state.laboratory = action.payload
+            state.laboratory[action.payload.name] = action.payload.value
         },
         laboratoryClear: (state) => {
             state.laboratory = initialLaboratory
+        },
+        loadLaboratoryEdit: (state, action) => {
+            state.laboratoryEdit = action.payload
+        },
+        changeLaboratoryEdit: (state, action) => {
+            state.laboratoryEdit[action.payload.name] = action.payload.value
+        },
+        laboratoryClearEdit: (state) => {
+            state.laboratoryEdit = {}
         }
+        
     },
 })
 
@@ -41,5 +52,8 @@ export const {
     laboratorySuccess,
     laboratoryError,
     laboratoryNew,
-    laboratoryClear
+    laboratoryClear,
+    changeLaboratoryEdit,
+    laboratoryClearEdit,
+    loadLaboratoryEdit,
 } = laboratorySlice.actions
