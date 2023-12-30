@@ -2,7 +2,7 @@ import inventoryApi from "../apis/inventoryApi"
 
 const BASE_URL = '/api/v1/laboratories'
 
-export const getAll = async () => {
+export const getAllLaboratory = async () => {
     try {
         return await inventoryApi.get(`${BASE_URL}`)
     } catch (error) {
@@ -10,7 +10,7 @@ export const getAll = async () => {
     }
 }
 
-export const getById = async (id) => {
+export const getByIdLaboratory = async (id) => {
     try {
         return await inventoryApi.get(`${BASE_URL}/${id}`)
     } catch (error) {
@@ -18,7 +18,7 @@ export const getById = async (id) => {
     }
 }
 
-export const create = async (laboratory) => {
+export const createLaboratory = async (laboratory) => {
     try {
         return await inventoryApi.post(`${BASE_URL}`, laboratory)
     } catch (error) {
@@ -26,7 +26,7 @@ export const create = async (laboratory) => {
     }
 }
 
-export const update = async (laboratory) => {
+export const updateLaboratory = async (laboratory) => {
     try {
         return await inventoryApi.put(`${BASE_URL}/${laboratory.id}`, laboratory)
     } catch (error) {
@@ -34,7 +34,7 @@ export const update = async (laboratory) => {
     }
 }
 
-export const remove = async (id) => {
+export const removeLaboratory = async (id) => {
     try {
         return await inventoryApi.delete(`${BASE_URL}/${id}`)
     } catch (error) {
