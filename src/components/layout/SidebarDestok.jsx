@@ -6,8 +6,11 @@ import useNavigated from "../../hooks/useNavigated";
 
 export default function SidebarDestok() {
   const { login } = useAuth();
-  const { navigateOptions, handleNavigate, iconMap } = useNavigated();
-  const navigateRole = navigateOptions[login.role];
+  const { navigateOptions, handleNavigate, iconMap, rolesNavigate } = useNavigated();
+
+  const roles = login.user.roles;
+
+  const navigateRole = navigateOptions[rolesNavigate(roles)];
 
   const path = window.location.pathname;
 
@@ -31,7 +34,7 @@ export default function SidebarDestok() {
       </div>
       <div className="flex flex-col justify-between flex-1 mt-6">
         <nav>
-          {navigateRole.map((item) => {
+          {navigateRole?.map((item) => {
             const IconComponent = iconMap[item.icon];
             return (
               <NavLink

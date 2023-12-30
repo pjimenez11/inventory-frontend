@@ -12,14 +12,15 @@ const useAuth = () => {
             const response = await sign_in(user)
             if (response.status === 200) {
                 const { data } = response
+                console.log(data)
                 const { headers } = response
-                sessionStorage.setItem("login", JSON.stringify({ isAuth: true, user: data.status.data }))
+                sessionStorage.setItem("login", JSON.stringify({ isAuth: true, user:  JSON.parse(data.status.data.user) }))
                 sessionStorage.setItem("token", JSON.stringify(headers.authorization).replace(/['"]+/g, ''))
-                dispach(authSuccess({ user: data.status.data, token: headers.authorization }))
+                dispach(authSuccess({ user: JSON.parse(data.status.data.user), token: headers.authorization }))
             }
         }
         catch (error) {
-            console.log()
+            console.log(error)
             Swal.fire("Error Login", "Username o password invalidos", "error");
         }
     }

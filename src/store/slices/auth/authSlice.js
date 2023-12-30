@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialLogin = JSON.parse(sessionStorage.getItem("login")) || {
-    isAuth: true,
+    isAuth: false,
     user: { id: 1, first_name: "John", last_name: "Doe" },
     role: "admin",
 };
