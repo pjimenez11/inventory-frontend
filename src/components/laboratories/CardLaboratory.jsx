@@ -9,7 +9,7 @@ export default function CardLaboratory({ laboratory }) {
       <div className="flex flex-row justify-center gap-3">
         <div className="flex flex-row items-center justify-center gap-1 text-green-500 border border-green-500 rounded-lg px-2 py-1">
           <HiOutlineDesktopComputer />
-          <h3 className="">{laboratory.computers}</h3>
+          <h3 className="">{laboratory.computers || 0}</h3>
         </div>
         <NavLink to={`/inventory/laboratorios/${laboratory.id}`} className="border border-red-500 hover:bg-red-500 hover:border-red-600 hover:text-white rounded-lg px-2 py-1 text-red-500">
           Editar
