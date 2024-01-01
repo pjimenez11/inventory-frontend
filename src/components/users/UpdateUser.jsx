@@ -5,7 +5,7 @@ const UpdateUser = () => {
         <div>
             <h1>Update User</h1>
         </div>
-    )
-}
+    );
+};
 
-export default UpdateUser
+export default UpdateUser;

@@ -5,7 +5,7 @@ const DeleteUsers = () => {
         <div>
             <h1>Delete Users</h1>
         </div>
-    )
-}
+    );
+};
 
-export default DeleteUsers
+export default DeleteUsers;

@@ -1,4 +1,3 @@
-import { IoIosAddCircleOutline } from "react-icons/io";
 import { useEffect, useState } from "react";
 
 const Suggestions = () => {
