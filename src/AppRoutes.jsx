@@ -8,8 +8,9 @@ import { useEffect } from "react";
 
 export default function AppRoutes() {
   const { login } = useAuth();
-  const { handlerGetUsers } = useUser();
+  const { handlerGetUsers, handlerUpdateUser, handlerGetUser } = useUser();
   const { handlerGetSuggestions } = useSuggestion();
+
   useEffect(() => {
     
       handlerGetUsers();

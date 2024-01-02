@@ -7,12 +7,11 @@ export const useUser = () => {
     const {users} = useSelector((state) => state.user);
     const dispach = useDispatch();
 
-    const habdlerGetUser = async (id) => {
+    const handlerGetUser = async (id) => {
         try {
             const response = await getUser(id)
             if (response.status === 200) {
-                const { data } = response
-                return data.status.data
+                dispach(loadUsers(response.data));
             }
         } catch (error) {
             throw error
@@ -47,8 +46,7 @@ export const useUser = () => {
         try {
             const response = await updateUser(user)
             if (response.status === 200) {
-                const { data } = response
-                dispach(editUser(data.status.data))
+                dispach(editUser(response.data))
             }
         } catch (error) {
             throw error
@@ -66,5 +64,5 @@ export const useUser = () => {
             throw error
         }
     }
-    return { users, handlerGetUsers, handlerCreateUser, handlerUpdateUser, handlerDeleteUser, habdlerGetUser }
+    return { users, handlerGetUsers, handlerCreateUser, handlerUpdateUser, handlerDeleteUser, handlerGetUser }
 }

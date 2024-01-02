@@ -1,15 +1,21 @@
 
 
 const FormSuggestions = () => {
+    const onSubmit = (e) => {
+        e.preventDefault();
+        console.log('submit');
+    }
+
     return (
-        <form className=" h-full w-2/3 bg-oxford-blue-900 rounded-lg p-6 ">
+        <div className="flex items-center justify-center h-screen bg-oxford-blue-900 rounded-">
+            <form className=" h-full w-2/3 bg-oxford-blue-900 rounded-lg p-6 " onSubmit={onSubmit}>
         <div className="grid grid-cols-1 gap-6 mt-4 ">
         <div>
           <label className=" text-gray-200" for="name">
-            Nombre
+            Titulo
           </label>
           <input
-            id="name"
+            id="title"
             type="text"
             className="block w-full px-4 py-2 mt-2   border  rounded-md bg-oxford-blue-950 text-gray-300
              border-oxford-blue-600  focus:ring-blue-500 focus:ring-opacity-40 focus:border-blue-400
@@ -73,6 +79,7 @@ const FormSuggestions = () => {
           </button>
         </div>
       </form>
+        </div>
     );
 }
 
