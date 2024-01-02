@@ -2,9 +2,18 @@ import { Navigate, Route, Routes } from "react-router";
 import LoginPage from "./auth/pages/LoginPage";
 import AdminRoute from "./routes/AdminRoute";
 import useAuth from "./auth/hooks/useAuth";
+import { useUser } from "./hooks/useUser";
+import { useEffect } from "react";
 
 export default function AppRoutes() {
   const { login } = useAuth();
+  const { handlerGetUsers } = useUser();
+  useEffect(() => {
+    
+      handlerGetUsers();
+    }
+  , []);
+
   return (
     <>
       <Routes>
