@@ -13,18 +13,10 @@ export default function RowSuggestions({ suggestion, index }) {
         {index + 1}
       </td>
       <td className="px-4 py-4 text-sm text-gray-300 whitespace-nowrap">
+        {suggestion.title}
+      </td>
+      <td className="px-4 py-4 text-sm text-gray-300 whitespace-nowrap">
         {suggestion.description}
-      </td>
-      <td className="px-4 py-4 text-sm text-gray-300 whitespace-nowrap">
-        {suggestion.asset_id}
-      </td>
-     
-      <td className="px-4 py-4 text-sm text-gray-300 whitespace-nowrap">
-        {suggestion.suggestor_type}
-      </td>
-     
-      <td className="px-4 py-4 text-sm text-gray-300 whitespace-nowrap">
-        {suggestion.suggestor_id}
       </td>
      
     </tr>

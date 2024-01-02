@@ -1,17 +1,17 @@
-import axios from "axios"
 import {createSuggestion, getSuggestions} from "../services/SuggestionService"
 import { loadSuggestions } from "../store/slices/suggestion/suggestionSlice"
 import { useDispatch, useSelector } from "react-redux"
 
 export const useSuggestion = () => {
-    const {suggestion} = useSelector((state) => state.suggestion);
+    const {suggestions} = useSelector((state) => state.suggestion);
     const dispatch = useDispatch();
 
     const handlerGetSuggestions = async () => {
         try {
             const response = await getSuggestions()
             if (response.status === 200) {
-                dispatch(loadSuggestions(response.data))
+                dispatch(loadSuggestions(response.data));
+                sessionStorage.setItem("suggestion", JSON.stringify(response.data.status.data))
             }
         } catch (error) {
             throw error
@@ -30,5 +30,5 @@ export const useSuggestion = () => {
         }
     }
     
-    return { suggestion, handlerGetSuggestions, handlerCreateSuggestion }
+    return { suggestions, handlerGetSuggestions, handlerCreateSuggestion }
 }

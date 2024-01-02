@@ -16,5 +16,3 @@ export const getSuggestions = async () => {
         throw error
     }
 }
-
-return { createSuggestion, getSuggestions }

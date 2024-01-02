@@ -1,5 +1,6 @@
-import RowUsers from "./RowUsers";
+
 import {useSuggestion} from "../../hooks/useSuggestion"; 
+import RowSuggestions from "./RowSuggestions";
 
 export default function TableSuggestions() {
     const { suggestions } = useSuggestion();
@@ -31,37 +32,12 @@ export default function TableSuggestions() {
                   Descripcion
                 </th>
 
-                <th
-                  scope="col"
-                  className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-400"
-                >
-                  Nro del Asset
-                </th>
-
-                <th
-                  scope="col"
-                  className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-400"
-                >
-                  Tipo de usuario
-                </th>
-                <th
-                  scope="col"
-                  className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-400"
-                >
-                  Nro del usuario
-                </th>
-                <th
-                  scope="col"
-                  className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-400"
-                >
-                  Acciones
-                </th>
               </tr>
               
             </thead>
             <tbody className="divide-y divide-gray-700 bg-gray-900">
-              {suggestions.map((user, index) => (
-                <RowUsers key={index} user={user} index={index} />
+              {suggestions.map((suggestion, index) => (
+                <RowSuggestions key={index} suggestion={suggestion} index={index} />
               ))}
             </tbody>
           </table>
