@@ -1,0 +1,23 @@
+/* Estilo básico para el contenedor */
+::-webkit-scrollbar {
+    width: 6px; /* Ancho más delgado */
+  }
+  
+  /* Estilo del "track" (el fondo del scroll) */
+  ::-webkit-scrollbar-track {
+    background-color: transparent; /* Sin fondo */
+  }
+  
+  /* Estilo del "thumb" (el deslizador) */
+  ::-webkit-scrollbar-thumb {
+    background-color: #4c4d57; /* Gris medio */
+    border-radius: 6px;
+  }
+  
+  /* Estilo del "thumb" al pasar el mouse sobre él */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Gris oscuro */
+  }
+  
+  
+  
