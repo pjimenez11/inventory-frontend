@@ -9,7 +9,7 @@ export default function NewLaboratory() {
 
   useEffect(() => {
     if (idEdificio) {
-      modifyNewLaboratory({ name: "building", value: parseInt(idEdificio) });
+      modifyNewLaboratory({ name: "building_number", value: parseInt(idEdificio) });
     }
   }, [idEdificio]);
 

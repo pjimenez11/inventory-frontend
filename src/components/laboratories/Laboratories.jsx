@@ -4,113 +4,13 @@ import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
 import useLaboratory from "../../hooks/useLaboratory";
 
-const initialState = [
-  {
-    id: 1,
-    name: "Laboratorio 1",
-    description: "Redes",
-    computers: 10,
-    building: 1,
-  },
-  {
-    id: 2,
-    name: "Laboratorio 2",
-    description: "Redes",
-    computers: 0,
-    building: 1,
-  },
-  {
-    id: 3,
-    name: "Laboratorio 3",
-    description: "Redes",
-    computers: 20,
-    building: 1,
-  },
-  {
-    id: 4,
-    name: "Laboratorio 4",
-    description: "Redes",
-    computers: 0,
-    building: 1,
-  },
-  {
-    id: 5,
-    name: "Laboratorio 1",
-    description: "Redes",
-    computers: 0,
-    building: 2,
-  },
-  {
-    id: 6,
-    name: "Laboratorio 2",
-    description: "Redes",
-    computers: 0,
-    building: 2,
-  },
-  {
-    id: 7,
-    name: "Laboratorio 3",
-    description: "Redes",
-    computers: 0,
-    building: 2,
-  },
-  {
-    id: 8,
-    name: "Laboratorio 4",
-    description: "Redes",
-    computers: 25,
-    building: 2,
-  },
-  {
-    id: 9,
-    name: "Laboratorio 5",
-    description: "Redes",
-    computers: 13,
-    building: 2,
-  },
-  {
-    id: 10,
-    name: "Laboratorio 6",
-    description: "Redes",
-    computers: 12,
-    building: 2,
-  },
-  {
-    id: 11,
-    name: "Laboratorio 7",
-    description: "Redes del piso 4 sdfa a asdfasd dsfasdfa",
-    computers: 25,
-    building: 2,
-  },
-  {
-    id: 12,
-    name: "Laboratorio 8",
-    description: "Redes",
-    computers: 45,
-    building: 2,
-  },
-  {
-    id: 13,
-    name: "Laboratorio 9",
-    description: "Redes",
-    computers: 26,
-    building: 2,
-  },
-  {
-    id: 14,
-    name: "Laboratorio 10",
-    description: "Redes",
-    computers: 25,
-    building: 2,
-  },
-];
-
 export function Laboratories() {
   const { laboratories, handlerGetAll } = useLaboratory();
 
   useEffect(() => {
     handlerGetAll();
   }, []);
+
 
   return (
     <section className="h-full">
@@ -119,7 +19,7 @@ export function Laboratories() {
           <h2 className="text-white text-center">Edificio 1</h2>
           <div className="grid grid-cols-2 xl:grid-cols-3 gap-6 mt-6">
             {laboratories
-              /*.filter((laboratory) => laboratory.building === 1)*/
+              .filter((laboratory) => laboratory.building_number === 1)
               .map((laboratory) => (
                 <CardLaboratory key={laboratory.id} laboratory={laboratory} />
               ))}
@@ -137,7 +37,7 @@ export function Laboratories() {
           <h2 className="text-white text-center">Edificio 2</h2>
           <div className="grid grid-cols-2 xl:grid-cols-3 gap-6 mt-6">
             {laboratories
-              /*.filter((laboratory) => laboratory.building === 2)*/
+              .filter((laboratory) => laboratory.building_number === 2)
               .map((laboratory) => (
                 <CardLaboratory key={laboratory.id} laboratory={laboratory} />
               ))}

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialLaboratory = {
     name: '',
     description: '',
-    building: 1,
+    building_number: 1,
 }
 
 export const laboratorySlice = createSlice({
