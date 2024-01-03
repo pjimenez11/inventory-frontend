@@ -41,22 +41,10 @@ const adminNavigate = [
 ];
 
 
-const custodioNavigate = [
-    {
-        name: "Laboratorios",
-        href: "/inventory/laboratorios",
-        icon: "SiGoogleclassroom",
-        current: false,
-    },
-    {
-        name: "Bienes",
-        href: "/inventory/bienes",
-        icon: "FaComputer",
-        current: false,
-    },
+const userNavigate = [
     {
         name: "Sugerencias",
-        href: "/inventory/sugerencias",
+        href: "/sugerencias/nuevo",
         icon: "MdOutlineSettingsSuggest",
         current: false,
     },
@@ -70,8 +58,7 @@ export const navigateSlice = createSlice({
     initialState: {
         navigateOptions: {
             TECHNICIAN: adminNavigate,
-            CUSTODIAN: custodioNavigate,
-            TECHNICIAN_CUSTODIAN: [...adminNavigate, ...custodioNavigate],
+            USER: userNavigate,
         }
     },
     reducers: {

@@ -4,6 +4,7 @@ import { asignarSuggestor, changeSuggestionsEdit, loadSuggestionsEdit, suggestio
 import { createSuggestions, getAllSuggestions, removeSuggestions, updateSuggestions } from "../services/SuggestionService";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { createActivities } from "../services/activitiesServices";
 
 const useSuggestion = () => {
     const { suggestions, suggestion, suggestionEdit, loading, error } = useSelector((state) => state.suggestion);
@@ -33,7 +34,6 @@ const useSuggestion = () => {
     const saveSuggestions = async () => {
         try {
             await createSuggestions(suggestion)
-            dispatch(suggestionsClear())
             navigate("/inventory/sugerencias")
         } catch (error) {
             console.log(error)
@@ -91,6 +91,15 @@ const useSuggestion = () => {
         dispatch(asignarSuggestor(id))
     }
 
+    const handlerCreateActivity = async (suggestion_id) => {
+        try {
+            const response = await createActivities(suggestion_id)
+            handlerGetAll()
+        } catch (error) {
+            throw error
+        }
+    }
+
     return {
         suggestions,
         suggestion,
@@ -104,7 +113,8 @@ const useSuggestion = () => {
         handlerUpdateSuggestions,
         handlerGetById,
         handlerRemoveSuggestions,
-        handlerAsinedSuggestor
+        handlerAsinedSuggestor,
+        handlerCreateActivity
     }
 }
 

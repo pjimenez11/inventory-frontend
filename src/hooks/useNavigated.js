@@ -20,9 +20,9 @@ const useNavigated = () => {
     const rolesNavigate = (roles) => {
         const custodian = roles.some(role => role.name === "CUSTODIAN")
         const technician = roles.some(role => role.name === "TECHNICIAN")
-        if (technician && custodian) return "TECHNICIAN_CUSTODIAN"
+        const student = roles.some(role => role.name === "STUDENT")
         if (technician) return "TECHNICIAN"
-        if (custodian) return "CUSTODIAN"
+        if (custodian || student) return "USER"
     }
 
     const handleNavigate = (href) => {

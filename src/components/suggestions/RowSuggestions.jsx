@@ -3,7 +3,7 @@ import { MdCheck, MdOutlineCancel } from "react-icons/md";
 import useSuggestion from "../../hooks/useSuggestion";
 
 export default function RowSuggestions({ suggestion, index }) {
-  const { handlerRemoveSuggestions } = useSuggestion();
+  const { handlerRemoveSuggestions, handlerCreateActivity } = useSuggestion();
 
   return (
     <tr key={index}>
@@ -39,7 +39,7 @@ export default function RowSuggestions({ suggestion, index }) {
       <td className="px-4 py-4 text-sm whitespace-nowrap">
         <div className="flex items-center gap-x-6">
           
-          <button className="transition-colors duration-200 hover:text-green-500 text-gray-300 focus:outline-none">
+          <button className="transition-colors duration-200 hover:text-green-500 text-gray-300 focus:outline-none" onClick={() => handlerCreateActivity(suggestion.id)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
