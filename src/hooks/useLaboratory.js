@@ -65,7 +65,6 @@ const useLaboratory = () => {
 
     const handlerGetById = (id) => {
         const laboratory = laboratories.find(laboratory => laboratory.id == id)
-        console.log(laboratory)
         if (!laboratory) {
             navigate("/inventory/laboratorios")
             return

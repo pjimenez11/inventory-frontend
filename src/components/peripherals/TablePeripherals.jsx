@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import RowAssets from "./RowAsset";
-import useAssets from "../../hooks/useAssets";
+import usePeripherals from "../../hooks/usePeripherals";
+import RowPeripherals from "./RowPeripherals";
 
-export default function TableAssets() {
-  const { assets, handlerGetAll } = useAssets();
+export default function TablePeripherals() {
+  const { peripherals, handlerGetAll } = usePeripherals();
   useEffect(() => {
     handlerGetAll();
   }, []);
@@ -39,39 +39,13 @@ export default function TableAssets() {
                   scope="col"
                   className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-400"
                 >
-                  Stock
-                </th>
-
-                <th
-                  scope="col"
-                  className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-400"
-                >
-                  Cantidad
-                </th>
-                <th
-                  scope="col"
-                  className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-400"
-                >
-                  Custodio
-                </th>
-                <th
-                  scope="col"
-                  className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-400"
-                >
-                  Laboratorio
-                </th>
-
-                <th
-                  scope="col"
-                  className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-400"
-                >
                   Acciones
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-700 bg-gray-900">
-              {assets.map((asset, index) => (
-                <RowAssets key={index} asset={asset} index={index} />
+            {peripherals.map((p, index) => (
+                <RowPeripherals key={index} peripheral={p} index={index} />
               ))}
             </tbody>
           </table>

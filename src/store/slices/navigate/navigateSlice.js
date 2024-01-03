@@ -14,6 +14,19 @@ const adminNavigate = [
         current: false,
     },
     {
+        name: "Computadoras",
+        href: "/inventory/computadoras",
+        icon: "FaComputer",
+        current: false,
+    },
+    {
+        name: "Perifericos",
+        href: "/inventory/perifericos",
+        icon: "FaComputer",
+        current: false,
+    },
+
+    {
         name: "Sugerencias",
         href: "/inventory/sugerencias",
         icon: "MdOutlineSettingsSuggest",

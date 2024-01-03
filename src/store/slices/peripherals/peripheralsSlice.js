@@ -45,3 +45,14 @@ export const peripheralsSlice = createSlice({
         },
     },
 })
+
+export const {
+    peripheralsLoading,
+    peripheralsSuccess,
+    peripheralsError,
+    peripheralsNew,
+    peripheralsClear,
+    loadPeripheralsEdit,
+    changePeripheralsEdit,
+    peripheralsClearEdit,
+} = peripheralsSlice.actions
