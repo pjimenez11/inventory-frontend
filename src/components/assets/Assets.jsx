@@ -1,8 +1,10 @@
 import { IoIosAddCircleOutline } from "react-icons/io";
 import TableAssets from "./TableAssets";
 import { NavLink } from "react-router-dom";
+import useAssets from "../../hooks/useAssets";
 
 export function Assets() {
+  const { assets } = useAssets();
   return (
     <section className="min-h-max min-w-max flex flex-col gap-6 items-center p-6 bg-oxford-blue-900 rounded-lg">
       <div className="sm:flex sm:items-center sm:justify-between w-full">
@@ -11,7 +13,7 @@ export function Assets() {
             <h2 className="text-lg font-medium text-white">Bienes</h2>
 
             <span className="px-3 py-1 text-xs  rounded-full bg-gray-800 text-blue-400">
-              3
+              {assets.length}
             </span>
           </div>
 

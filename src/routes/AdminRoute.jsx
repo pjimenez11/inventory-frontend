@@ -13,8 +13,31 @@ import FormSuggestions from "../components/suggestions/FormSuggestions";
 import Users from "../components/users/Users";
 import UpdateUser from "../components/users/UpdateUser";
 import CreateUser from "../components/users/CreateUser";
+import { Computers } from "../components/computers/Computers";
+import NewComputers from "../components/computers/NewComputers";
+import EditComputers from "../components/computers/EditComputers";
+import { Peripherals } from "../components/peripherals/Peripherals";
+import NewPeripherals from "../components/peripherals/NewPeripherals";
+import { useEffect } from "react";
+import useLaboratory from "../hooks/useLaboratory";
+import useComputers from "../hooks/useComputers";
+import usePeripherals from "../hooks/usePeripherals";
+import useAssets from "../hooks/useAssets";
+import EditPeripherals from "../components/peripherals/EditPeripherals";
 
 export default function AdminRoute() {
+  const { handlerGetAll: getLaboratory } = useLaboratory();
+  const { handlerGetAll: getComputers } = useComputers();
+  const { handlerGetAll: getPeripherals } = usePeripherals();
+  const { handlerGetAll: getAssets } = useAssets();
+
+  useEffect(() => {
+    getLaboratory();
+    getComputers();
+    getPeripherals();
+    getAssets();
+  }, []);
+
   return (
     <>
       <Header />
@@ -27,16 +50,32 @@ export default function AdminRoute() {
               path="/laboratorios/:idLaboratory"
               element={<EditLaboratory />}
             />
-            <Route path="/laboratorios/nuevo/:idEdificio" element={<NewLaboratory />} />
+            <Route
+              path="/laboratorios/nuevo/:idEdificio"
+              element={<NewLaboratory />}
+            />
 
             <Route path="/bienes" element={<Assets />} />
             <Route path="/bienes/nuevo" element={<NewAsset />} />
             <Route path="/bienes/editar/:id" element={<EditAsset />} />
+
+            <Route path="/computadoras" element={<Computers />} />
+            <Route path="/computadoras/nuevo" element={<NewComputers />} />
+            <Route
+              path="/computadoras/editar/:id"
+              element={<EditComputers />}
+            />
+
+            <Route path="/perifericos" element={<Peripherals />} />
+            <Route path="/perifericos/nuevo" element={<NewPeripherals />} />
+            <Route path="/perifericos/editar/:id" element={<EditPeripherals />} />
+
             <Route path="/sugerencias" element={<Suggestions />} />
             <Route path="/sugerencias/nuevo" element={<FormSuggestions />} />
-            <Route path="/usuarios" element={<Users/>} />
-            <Route path="/usuarios/nuevo" element={<CreateUser/>} />
-            <Route path="/usuarios/editar/:id" element={<UpdateUser/>} />
+
+            <Route path="/usuarios" element={<Users />} />
+            <Route path="/usuarios/nuevo" element={<CreateUser />} />
+            <Route path="/usuarios/editar/:id" element={<UpdateUser />} />
 
             <Route
               path="/*"

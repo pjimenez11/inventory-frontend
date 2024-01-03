@@ -1,12 +1,13 @@
 import { useEffect } from "react";
-import RowAssets from "./RowAsset";
-import useAssets from "../../hooks/useAssets";
+import RowComputers from "./RowComputers";
+import useComputers from "../../hooks/useComputers";
 
-export default function TableAssets() {
-  const { assets, handlerGetAll } = useAssets();
+export default function TableComputers() {
+  const { computers, handlerGetAll } = useComputers();
   useEffect(() => {
     handlerGetAll();
   }, []);
+
   return (
     <div className="overflow-x-auto w-full">
       <div className="inline-block min-w-full  align-middle ">
@@ -39,26 +40,7 @@ export default function TableAssets() {
                   scope="col"
                   className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-400"
                 >
-                  Stock
-                </th>
-
-                <th
-                  scope="col"
-                  className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-400"
-                >
-                  Cantidad
-                </th>
-                <th
-                  scope="col"
-                  className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-400"
-                >
-                  Custodio
-                </th>
-                <th
-                  scope="col"
-                  className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-400"
-                >
-                  Laboratorio
+                  Perifericos
                 </th>
 
                 <th
@@ -70,8 +52,8 @@ export default function TableAssets() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-700 bg-gray-900">
-              {assets.map((asset, index) => (
-                <RowAssets key={index} asset={asset} index={index} />
+              {computers.map((computer, index) => (
+                <RowComputers key={index} computer={computer} index={index} />
               ))}
             </tbody>
           </table>
