@@ -23,7 +23,6 @@ export const useUser = () => {
             const response = await getUsers()
             if (response.status === 200) {
                 dispach(loadUsers(response.data));
-                sessionStorage.setItem("users", JSON.stringify(data.status.data))
             }
         } catch (error) {
             throw error

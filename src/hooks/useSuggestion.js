@@ -1,34 +1,111 @@
-import {createSuggestion, getSuggestions} from "../services/SuggestionService"
-import { loadSuggestions } from "../store/slices/suggestion/suggestionSlice"
+
 import { useDispatch, useSelector } from "react-redux"
+import { asignarSuggestor, changeSuggestionsEdit, loadSuggestionsEdit, suggestionsClear, suggestionsClearEdit, suggestionsError, suggestionsLoading, suggestionsNew, suggestionsSuccess } from "../store/slices/suggestion/suggestionSlice";
+import { createSuggestions, getAllSuggestions, removeSuggestions, updateSuggestions } from "../services/SuggestionService";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
-export const useSuggestion = () => {
-    const {suggestions} = useSelector((state) => state.suggestion);
+const useSuggestion = () => {
+    const { suggestions, suggestion, suggestionEdit, loading, error } = useSelector((state) => state.suggestion);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    const handlerGetSuggestions = async () => {
+    const handlerGetAll = async () => {
         try {
-            const response = await getSuggestions()
-            if (response.status === 200) {
-                dispatch(loadSuggestions(response.data));
-                sessionStorage.setItem("suggestion", JSON.stringify(response.data.status.data))
-            }
+            dispatch(suggestionsLoading())
+            const response = await getAllSuggestions()
+            dispatch(suggestionsSuccess(response.data))
         } catch (error) {
-            throw error
+            console.log(error)
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+            })
+            dispatch(suggestionsError(error))
         }
     }
 
-    const handlerCreateSuggestion = async (suggestion) => {
+    const modifyNewSuggestions = (values) => {
+        dispatch(suggestionsNew(values))
+    }
+
+    const saveSuggestions = async () => {
         try {
-            const response = await createSuggestion(suggestion)
-            if (response.status === 200) {
-                const { data } = response
-                dispatch(loadSuggestions(data.status.data))
-            }
+            await createSuggestions(suggestion)
+            dispatch(suggestionsClear())
+            navigate("/inventory/sugerencias")
         } catch (error) {
-            throw error
+            console.log(error)
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+            })
         }
     }
-    
-    return { suggestions, handlerGetSuggestions, handlerCreateSuggestion }
+
+    const modifyEditSuggestions = (values) => {
+        dispatch(changeSuggestionsEdit(values))
+    }
+
+    const handlerUpdateSuggestions = async () => {
+        try {
+            await updateSuggestions(suggestionEdit)
+            dispatch(suggestionsClearEdit())
+            navigate("/sugerencias")
+        } catch (error) {
+            console.log(error)
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+            })
+        }
+    }
+
+    const handlerGetById = async (id) => {
+        const suggestion = suggestions.find(suggestion => suggestion.id == id)
+        if (!suggestion) {
+            navigate("/inventory/sugerencias")
+            return
+        }
+        dispatch(loadSuggestionsEdit(suggestion))
+    }
+
+    const handlerRemoveSuggestions = async (id) => {
+        try {
+            await removeSuggestions(id)
+            handlerGetAll()
+        } catch (error) {
+            console.log(error)
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+            })
+        }
+    }
+
+    const handlerAsinedSuggestor = (id) => {
+        dispatch(asignarSuggestor(id))
+    }
+
+    return {
+        suggestions,
+        suggestion,
+        suggestionEdit,
+        loading,
+        error,
+        handlerGetAll,
+        modifyNewSuggestions,
+        saveSuggestions,
+        modifyEditSuggestions,
+        handlerUpdateSuggestions,
+        handlerGetById,
+        handlerRemoveSuggestions,
+        handlerAsinedSuggestor
+    }
 }
+
+export default useSuggestion
