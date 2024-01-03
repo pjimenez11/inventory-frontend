@@ -4,6 +4,9 @@ import { navigateSlice } from "./slices/navigate/navigateSlice";
 import { laboratorySlice } from "./slices/laboratory/laboratorySlice";
 import { userSlice } from "./slices/user/userSlice";
 import { suggestionSlice } from "./slices/suggestion/suggestionSlice"; 
+import { assetsSlice } from "./slices/assets/assetsSlice";
+import { computersSlice } from "./slices/computers/computersSlice";
+import { peripheralsSlice } from "./slices/peripherals/peripheralsSlice";
 
 const store = configureStore({
     reducer: {
@@ -12,6 +15,9 @@ const store = configureStore({
         laboratory: laboratorySlice.reducer,
         user: userSlice.reducer,
         suggestion: suggestionSlice.reducer,
+        assets: assetsSlice.reducer,
+        computers: computersSlice.reducer,
+        peripherals: peripheralsSlice.reducer,
     },
 });
 
