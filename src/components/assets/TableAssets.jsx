@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import RowAssets from "./RowAsset";
+import useAssets from "../../hooks/useAssets";
 
 const assets = [
   {
@@ -31,6 +33,11 @@ const assets = [
 ];
 
 export default function TableAssets() {
+  const { assets, handlerGetAll } = useAssets();
+  useEffect(() => {
+    handlerGetAll();
+    console.log(assets);
+  }, []);
   return (
     <div className="overflow-x-auto w-full">
       <div className="inline-block min-w-full  align-middle ">

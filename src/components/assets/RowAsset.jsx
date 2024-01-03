@@ -25,10 +25,10 @@ export default function RowAssets({ asset, index }) {
       <td className="px-4 py-4 text-sm font-medium text-gray-200 whitespace-nowrap">
         {index + 1}
       </td>
-      <td className="px-4 py-4 text-sm text-gray-300 whitespace-nowrap">
+      <td className="px-4 py-4 text-sm text-gray-300 max-w-[250px]">
         {asset.name}
       </td>
-      <td className="px-4 py-4 text-sm text-gray-300 whitespace-nowrap">
+      <td className="px-4 py-4  text-sm text-gray-300 max-w-[250px]">
         {asset.description}
       </td>
       <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
@@ -55,13 +55,13 @@ export default function RowAssets({ asset, index }) {
           />
           <div>
             <h2 className="text-sm font-medium text-white ">
-              {asset.custodio}
+              {asset.custodian.first_name} {asset.custodian.last_name}
             </h2>
           </div>
         </div>
       </td>
-      <td className="px-4 py-4 text-sm text-gray-300 whitespace-nowrap">
-        {asset.laboratory}
+      <td className="px-4 py-4 text-sm text-gray-300 max-w-[250px]">
+        {asset.laboratory.name}
       </td>
       <td className="px-4 py-4 text-sm whitespace-nowrap">
         <div className="flex items-center gap-x-6">
