@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { assetsClear, assetsClearEdit, assetsError, assetsLoading, assetsNew, assetsSuccess, changeAssetsEdit } from "../store/slices/assets/assetsSlice";
-import { createAssets, getAllAssets, updateAssets } from "../services/assetsServices";
+import { assetsClear, assetsClearEdit, assetsError, assetsLoading, assetsNew, assetsSuccess, changeAssetsEdit, loadAssetsEdit } from "../store/slices/assets/assetsSlice";
+import { createAssets, getAllAssets, removeAssets, updateAssets } from "../services/assetsServices";
 import Swal from "sweetalert2";
 
 const useAssets = () => {
@@ -78,13 +78,26 @@ const useAssets = () => {
     }
 
     const handlerGetById = (id) => {
-        const assets = assets.find(assets => assets.id == id)
-        console.log(assets)
-        if (!assets) {
+        const asset = assets.find(asset => asset.id == id)
+        if (!asset) {
             navigate("/inventory/bienes")
             return
         }
-        dispach(loadAssetsEdit(assets))
+        dispach(loadAssetsEdit(asset))
+    }
+
+    const handlerRemoveAssets = async (id) => {
+        try {
+            await removeAssets(id)
+            handlerGetAll()
+        } catch (error) {
+            console.log(error)
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No se puede borrar, el bien se encuentra referenciado!',
+            })
+        }
     }
 
 
@@ -100,7 +113,8 @@ const useAssets = () => {
         modifyEditAssets,
         handlerUpdateAssets,
         handlerDeleteAssets,
-        handlerGetById
+        handlerGetById,
+        handlerRemoveAssets
     }
 };
 
