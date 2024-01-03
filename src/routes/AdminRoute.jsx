@@ -26,6 +26,7 @@ import FormSuggestions from "../components/suggestions/FormSuggestions";
 import NewSuggestions from "../components/suggestions/NewSuggestions";
 import useAuth from "../auth/hooks/useAuth";
 import useSuggestion from "../hooks/useSuggestion";
+import { useUser } from "../hooks/useUser";
 
 export default function AdminRoute() {
   const { handlerGetAll: getLaboratory } = useLaboratory();
@@ -34,6 +35,7 @@ export default function AdminRoute() {
   const { handlerGetAll: getAssets } = useAssets();
   const { handlerGetAll: getSuggestions , handlerAsinedSuggestor} = useSuggestion();
   const { login } = useAuth();
+  const {handlerGetUsers} = useUser();
 
   useEffect(() => {
     getLaboratory();
@@ -42,6 +44,7 @@ export default function AdminRoute() {
     getAssets();
     getSuggestions();
     handlerAsinedSuggestor(login.user.id);
+    handlerGetUsers();
   }, []);
 
   return (
