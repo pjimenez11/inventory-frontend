@@ -1,24 +1,9 @@
-import { MdCheck, MdOutlineCancel, MdOutlineCreate } from "react-icons/md";
-import { NavLink, useNavigate } from "react-router-dom";
+import { MdCheck, MdOutlineCancel } from "react-icons/md";
+import { NavLink } from "react-router-dom";
+import useAssets from "../../hooks/useAssets";
 
 export default function RowAssets({ asset, index }) {
-  const navigate = useNavigate();
-
-  const onStatus = (status) => {
-    console.log(status);
-    if (status === true) {
-      return "Aprobado";
-    }
-    if (status === false) {
-      return "Asignado";
-    }
-  };
-
-  const onNavigate = (id) => {
-    navigate(`/inventory/bienes/${id}`);
-  };
-
-  console.log(asset);
+  const { handlerRemoveAssets } = useAssets();
 
   return (
     <tr key={index}>
@@ -65,7 +50,10 @@ export default function RowAssets({ asset, index }) {
       </td>
       <td className="px-4 py-4 text-sm whitespace-nowrap">
         <div className="flex items-center gap-x-6">
-          <NavLink to={`/inventory/bienes/editar/${asset.id}`} className=" transition-colors duration-200 hover:text-yellow-500 text-gray-300 focus:outline-none">
+          <NavLink
+            to={`/inventory/bienes/editar/${asset.id}`}
+            className=" transition-colors duration-200 hover:text-yellow-500 text-gray-300 focus:outline-none"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -81,8 +69,11 @@ export default function RowAssets({ asset, index }) {
               />
             </svg>
           </NavLink>
-          
-          <button className="transition-colors duration-200 hover:text-red-500 text-gray-300 focus:outline-none">
+
+          <button
+            className="transition-colors duration-200 hover:text-red-500 text-gray-300 focus:outline-none"
+            onClick={() => handlerRemoveAssets(asset.id)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
