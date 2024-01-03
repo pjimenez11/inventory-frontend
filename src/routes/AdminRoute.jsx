@@ -8,6 +8,11 @@ import NewLaboratory from "../components/laboratories/NewLaboratory";
 import { Assets } from "../components/assets/Assets";
 import NewAsset from "../components/assets/NewAsset";
 import EditAsset from "../components/assets/EditAsset";
+import Suggestions from "../components/suggestions/Suggestions";
+import FormSuggestions from "../components/suggestions/FormSuggestions";
+import Users from "../components/users/Users";
+import UpdateUser from "../components/users/UpdateUser";
+import CreateUser from "../components/users/CreateUser";
 
 export default function AdminRoute() {
   return (
@@ -27,8 +32,11 @@ export default function AdminRoute() {
             <Route path="/bienes" element={<Assets />} />
             <Route path="/bienes/nuevo" element={<NewAsset />} />
             <Route path="/bienes/editar/:id" element={<EditAsset />} />
-            <Route path="/sugerencias" element={<LoandingSpiner />} />
-            <Route path="/usuarios" element={<h1>Usuarios</h1>} />
+            <Route path="/sugerencias" element={<Suggestions />} />
+            <Route path="/sugerencias/nuevo" element={<FormSuggestions />} />
+            <Route path="/usuarios" element={<Users/>} />
+            <Route path="/usuarios/nuevo" element={<CreateUser/>} />
+            <Route path="/usuarios/editar/:id" element={<UpdateUser/>} />
 
             <Route
               path="/*"
