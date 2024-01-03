@@ -27,12 +27,13 @@ import NewSuggestions from "../components/suggestions/NewSuggestions";
 import useAuth from "../auth/hooks/useAuth";
 import useSuggestion from "../hooks/useSuggestion";
 
-export default function AdminRoute() {
+export default function UserRoute() {
   const { handlerGetAll: getLaboratory } = useLaboratory();
   const { handlerGetAll: getComputers } = useComputers();
   const { handlerGetAll: getPeripherals } = usePeripherals();
   const { handlerGetAll: getAssets } = useAssets();
-  const { handlerGetAll: getSuggestions , handlerAsinedSuggestor} = useSuggestion();
+  const { handlerGetAll: getSuggestions, handlerAsinedSuggestor } =
+    useSuggestion();
   const { login } = useAuth();
 
   useEffect(() => {
@@ -51,43 +52,10 @@ export default function AdminRoute() {
       <div className="fixed left-0 md:left-64 top-16 bottom-0 right-0 overflow-auto md:rounded-ss-3xl bg-oxford-blue-950 transition-all">
         <main className="flex flex-col w-full h-full p-6">
           <Routes>
-            <Route path="/laboratorios" element={<Laboratories />} />
-            <Route
-              path="/laboratorios/:idLaboratory"
-              element={<EditLaboratory />}
-            />
-            <Route
-              path="/laboratorios/nuevo/:idEdificio"
-              element={<NewLaboratory />}
-            />
-
-            <Route path="/bienes" element={<Assets />} />
-            <Route path="/bienes/nuevo" element={<NewAsset />} />
-            <Route path="/bienes/editar/:id" element={<EditAsset />} />
-
-            <Route path="/computadoras" element={<Computers />} />
-            <Route path="/computadoras/nuevo" element={<NewComputers />} />
-            <Route
-              path="/computadoras/editar/:id"
-              element={<EditComputers />}
-            />
-
-            <Route path="/perifericos" element={<Peripherals />} />
-            <Route path="/perifericos/nuevo" element={<NewPeripherals />} />
-            <Route path="/perifericos/editar/:id" element={<EditPeripherals />} />
-
-            <Route path="/sugerencias" element={<Suggestions />} />
             <Route path="/sugerencias/nuevo" element={<NewSuggestions />} />
-            <Route path="/sugerencias/editar/:id" element={<EditPeripherals />} />
             
-            <Route path="/usuarios" element={<Users />} />
-            <Route path="/usuarios/nuevo" element={<CreateUser />} />
-            <Route path="/usuarios/editar/:id" element={<UpdateUser />} />
+            <Route path="/*" element={<Navigate to="/inventory/sugerencias/nuevo" />} />
 
-            <Route
-              path="/*"
-              element={<Navigate to="/inventory/laboratorios" />}
-            />
           </Routes>
         </main>
       </div>
