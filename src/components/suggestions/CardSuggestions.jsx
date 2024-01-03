@@ -8,9 +8,7 @@ const CardSuggestions = ({ suggestions }) => {
                     <div className="bg-oxford-blue-950 rounded-ss-3xl shadow-md p-4" key={suggestion.id}>
                         <h2 className="text-white text-2xl font-bold">{suggestion.title}</h2>
                         <p className="text-white text-base">{suggestion.description}</p>
-                        <div className="flex justify-end">
-                            <button className="btn btn-primary">Ver más</button>
-                        </div>
+                        <p className="text-white text-base">Estado: {suggestion.status}</p>
                     </div>
                 ))
             }

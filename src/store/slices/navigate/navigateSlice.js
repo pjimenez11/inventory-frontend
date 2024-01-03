@@ -14,6 +14,19 @@ const adminNavigate = [
         current: false,
     },
     {
+        name: "Computadoras",
+        href: "/inventory/computadoras",
+        icon: "FaComputer",
+        current: false,
+    },
+    {
+        name: "Perifericos",
+        href: "/inventory/perifericos",
+        icon: "FaComputer",
+        current: false,
+    },
+
+    {
         name: "Sugerencias",
         href: "/inventory/sugerencias",
         icon: "MdOutlineSettingsSuggest",
@@ -56,8 +69,9 @@ export const navigateSlice = createSlice({
     name: 'navigate',
     initialState: {
         navigateOptions: {
-            admin: adminNavigate,
-            custodio: custodioNavigate,
+            TECHNICIAN: adminNavigate,
+            CUSTODIAN: custodioNavigate,
+            TECHNICIAN_CUSTODIAN: [...adminNavigate, ...custodioNavigate],
         }
     },
     reducers: {

@@ -16,10 +16,20 @@ const useNavigated = () => {
     const dispach = useDispatch()
 
     const { login } = useAuth();
+    
+    const rolesNavigate = (roles) => {
+        const custodian = roles.some(role => role.name === "CUSTODIAN")
+        const technician = roles.some(role => role.name === "TECHNICIAN")
+        if (technician && custodian) return "TECHNICIAN_CUSTODIAN"
+        if (technician) return "TECHNICIAN"
+        if (custodian) return "CUSTODIAN"
+    }
 
     const handleNavigate = (href) => {
-        dispach(currentNavigate({ role: login.role, href }))
+        dispach(currentNavigate({ role: rolesNavigate(login.user.roles), href }))
     }
+
+    
 
     const iconMap = {
         "GoHome": GoHome,
@@ -31,7 +41,7 @@ const useNavigated = () => {
         "FaRegUser": FaRegUser
     };
 
-    return { navigateOptions, handleNavigate, iconMap }
+    return { navigateOptions, handleNavigate, iconMap, rolesNavigate }
 }
 
 export default useNavigated
