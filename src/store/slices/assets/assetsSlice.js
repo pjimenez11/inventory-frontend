@@ -6,7 +6,7 @@ const initialAsset = {
     stock: true,
     amount: 1,
     computer_id: undefined,
-    custodian_id: 1,
+    custodian_id: undefined,
     custodian_type: "User",
     laboratory_id: 1,
 }

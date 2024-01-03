@@ -11,14 +11,14 @@ export function Suggestions() {
       <div className="sm:flex sm:items-center sm:justify-between w-full">
         <div>
           <div className="flex items-center gap-x-3">
-            <h2 className="text-lg font-medium text-white">Perifericos</h2>
+            <h2 className="text-lg font-medium text-white">Sugerencias</h2>
             <span className="px-3 py-1 text-xs  rounded-full bg-gray-800 text-blue-400">
               {suggestions.length}
             </span>
           </div>
 
           <p className="mt-1 text-sm  text-gray-300">
-            Lista de perifericos registrados
+            Lista de sugerencias registradas
           </p>
         </div>
 
@@ -29,7 +29,7 @@ export function Suggestions() {
           >
             <IoIosAddCircleOutline className="w-5 h-5" />
 
-            <span>Agregar periferico</span>
+            <span>Agregar sugerencia</span>
           </NavLink>
         </div>
       </div>
