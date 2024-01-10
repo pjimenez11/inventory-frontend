@@ -26,6 +26,13 @@ export default function TableComputers() {
                   scope="col"
                   className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-400"
                 >
+                  Codigo
+                </th>
+
+                <th
+                  scope="col"
+                  className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-400"
+                >
                   Nombre
                 </th>
 

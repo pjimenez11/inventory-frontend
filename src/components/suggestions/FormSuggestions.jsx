@@ -64,7 +64,7 @@ export default function FormSuggestions({ values, onChage, onSubmit }) {
             </option>
             {assets.map((asset) => (
               <option key={asset.id} value={asset.id}>
-               {asset.id} {asset.name} {asset.laboratory.name}
+               {asset.id} - {asset.name} - {asset.laboratory.name}
               </option>
             ))}
           </select>

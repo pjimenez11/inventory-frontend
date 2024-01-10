@@ -88,7 +88,7 @@ export default function FormAsset({ values, onChage, onSubmit }) {
             </option>
             {computers.map((computer) => (
               <option key={computer.id} value={computer.id}>
-                {computer.name}
+                {computer.code} - {computer.name}
               </option>
             ))}
           </select>
