@@ -138,6 +138,7 @@ const useSuggestion = () => {
                     suggestion_id: suggestion_id
                 }
                 await createActivities(activity)
+                handlerGetAll()
                 Swal.fire(
                     'Enviado!',
                     'La sugerencia ha sido enviada.',
