@@ -19,7 +19,7 @@ const useAssets = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!',
+                text: 'No se logro obtener los bienes!',
             })
             dispach(assetsError(error))
         }
@@ -39,7 +39,7 @@ const useAssets = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!',
+                text: 'No se logro guardar!',
             })
         }
     }
@@ -58,7 +58,7 @@ const useAssets = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!',
+                text: 'No se logro actualizar!',
             })
         }
     }
@@ -72,7 +72,7 @@ const useAssets = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!',
+                text: 'No se logro eliminar!',
             })
         }
     }

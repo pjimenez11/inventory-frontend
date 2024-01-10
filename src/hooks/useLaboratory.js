@@ -19,7 +19,7 @@ const useLaboratory = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!',
+                text: 'No se logro obtener los laboratorios!',
             })
             dispach(laboratoryError(error))
         }
@@ -39,7 +39,7 @@ const useLaboratory = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!',
+                text: 'No se logro guardar!',
             })
         }
     }
@@ -58,7 +58,7 @@ const useLaboratory = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!',
+                text: 'No se logro actualizar!',
             })
         }
     }
