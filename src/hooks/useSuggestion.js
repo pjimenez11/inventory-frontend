@@ -21,7 +21,7 @@ const useSuggestion = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!',
+                text: 'No se logro obtener las sugerencias!',
             })
             dispatch(suggestionsError(error))
         }
@@ -40,7 +40,7 @@ const useSuggestion = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!',
+                text: 'No se logro guardar!',
             })
         }
     }
@@ -59,7 +59,7 @@ const useSuggestion = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!',
+                text: 'No se logro actualizar!',
             })
         }
     }
@@ -104,7 +104,7 @@ const useSuggestion = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!',
+                text: 'No se logro eliminar!',
             })
         }
     }

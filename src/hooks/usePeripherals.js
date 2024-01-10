@@ -19,7 +19,7 @@ const usePeripherals = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!',
+                text: 'No se logro obtener los perifericos!',
             })
             dispatch(peripheralsError(error))
         }
@@ -39,7 +39,7 @@ const usePeripherals = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!',
+                text: 'No se logro guardar!',
             })
         }
     }
@@ -58,7 +58,7 @@ const usePeripherals = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!',
+                text: 'No se logro actualizar!',
             })
         }
     }
@@ -94,7 +94,7 @@ const usePeripherals = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!',
+                text: 'No se logro eliminar!',
             })
         }
     }
