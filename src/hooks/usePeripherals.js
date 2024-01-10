@@ -65,8 +65,30 @@ const usePeripherals = () => {
 
     const handlerRemovePeripherals = async (id) => {
         try {
-            await removePeripherals(id)
-            handlerGetAll()
+            const result = await Swal.fire({
+                icon: 'warning',
+                title: '¿Estas seguro de eliminar?',
+                text: 'No podras revertir esto!',
+                showCancelButton: true,
+                confirmButtonText: 'Si, eliminar!',
+                cancelButtonText: 'No, cancelar!',
+                reverseButtons: true
+            })
+            if (result.isConfirmed) {
+                await removePeripherals(id)
+                handlerGetAll()
+                Swal.fire(
+                    '¡Eliminado!',
+                    'El periferico ha sido eliminado.',
+                    'success'
+                )
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                Swal.fire(
+                    'Cancelado',
+                    'El periferico no se elimino',
+                    'error'
+                )
+            }
         } catch (error) {
             console.log(error)
             Swal.fire({

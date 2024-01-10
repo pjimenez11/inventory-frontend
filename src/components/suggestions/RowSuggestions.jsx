@@ -40,6 +40,9 @@ export default function RowSuggestions({ suggestion, index }) {
       <td className="px-4 py-4  text-sm text-gray-300 max-w-[250px]">
         {suggestion.asset.name}
       </td>
+      <td className="px-4 py-4  text-sm text-gray-300 max-w-[250px]">
+        {suggestion.activities.length > 0 && suggestion.activities[0].message}
+      </td>
       <td className="px-4 py-4 text-sm whitespace-nowrap">
         <div className="flex items-center gap-x-6">
           <button

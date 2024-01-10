@@ -88,8 +88,30 @@ const useAssets = () => {
 
     const handlerRemoveAssets = async (id) => {
         try {
-            await removeAssets(id)
-            handlerGetAll()
+            const result = await Swal.fire({
+                icon: 'warning',
+                title: '¿Estas seguro de eliminar?',
+                text: 'No podras revertir esto!',
+                showCancelButton: true,
+                confirmButtonText: 'Si, eliminar!',
+                cancelButtonText: 'No, cancelar!',
+                reverseButtons: true
+            })
+            if (result.isConfirmed) {
+                await removeAssets(id)
+                handlerGetAll()
+                Swal.fire(
+                    'Eliminado!',
+                    'El bien ha sido eliminado.',
+                    'success'
+                )
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                Swal.fire(
+                    'Cancelado',
+                    'El bien no se elimino',
+                    'error'
+                )
+            }
         } catch (error) {
             console.log(error)
             Swal.fire({
