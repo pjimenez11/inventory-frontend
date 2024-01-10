@@ -5,7 +5,7 @@ const initialSuggestion = {
     description: "",
     status: "open",
     asset_id: "",
-    suggestor_id: "",
+    suggestor_id: "6",
     suggestor_type: 'User',
 }
 
