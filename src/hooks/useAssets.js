@@ -31,7 +31,13 @@ const useAssets = () => {
 
     const saveAssets = async () => {
         try {
-            await createAssets(asset)
+            //eliminar el id del laboratorio si es vacio
+            const createAsset = { ...asset };
+            if (createAsset.laboratory_id === "") {
+                delete createAsset.laboratory_id;
+            }
+            console.log(createAsset)
+            await createAssets(createAsset)
             dispach(assetsClear())
             navigate("/inventory/bienes")
         } catch (error) {
@@ -83,7 +89,15 @@ const useAssets = () => {
             navigate("/inventory/bienes")
             return
         }
-        dispach(loadAssetsEdit(asset))
+        dispach(loadAssetsEdit({ 
+            id: asset.id, 
+            name: asset.name, 
+            description: asset.description, 
+            stock: asset.stock,
+            amount: asset.amount,
+            laboratory_id: asset.laboratory.id,
+            computer_id: asset.computer?.id,
+            custodian_id: asset.custodian?.id, }))
     }
 
     const handlerRemoveAssets = async (id) => {
