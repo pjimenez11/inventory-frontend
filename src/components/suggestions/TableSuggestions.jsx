@@ -52,6 +52,12 @@ export default function TableSuggestions() {
                   scope="col"
                   className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-400"
                 >
+                  Solucionado por
+                </th>
+                <th
+                  scope="col"
+                  className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-400"
+                >
                   Bien
                 </th>
 
