@@ -5,6 +5,24 @@ export default function FormComputers({ values, onChage, onSubmit }) {
       onSubmit={onSubmit}
     >
       <div className="grid grid-cols-1 gap-6 mt-4 ">
+      <div>
+          <label className=" text-gray-200" for="name">
+            Codigo
+          </label>
+          <input
+            id="code"
+            type="text"
+            name="code"
+            value={values.code}
+            onChange={onChage}
+            className="block w-full px-4 py-2 mt-2   border  rounded-md bg-oxford-blue-950 text-gray-300
+             border-oxford-blue-600  focus:ring-blue-500 focus:ring-opacity-40 focus:border-blue-400
+              focus:outline-none focus:ring"
+            minLength={8}
+            maxLength={8}
+            required
+          />
+        </div>
         <div>
           <label className=" text-gray-200" for="name">
             Nombre

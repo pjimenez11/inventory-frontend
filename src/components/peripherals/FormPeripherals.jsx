@@ -63,7 +63,7 @@ export default function FormPeripherals({ values, onChage, onSubmit }) {
             </option>
             {computers.map((computer) => (
               <option key={computer.id} value={computer.id}>
-                {computer.name}
+                {computer.code} - {computer.name}
               </option>
             ))}
           </select>
