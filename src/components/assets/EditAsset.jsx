@@ -20,7 +20,9 @@ export default function EditAssets() {
     }
   }, [id]);
 
-  console.log(assetEdit);
+  const changeAssetParametres = () => {
+    modifyEditAssets({ name: e.target.name, value: e.target.value });
+  }
 
   const onChage = (e) => {
     modifyEditAssets({ name: e.target.name, value: e.target.value });

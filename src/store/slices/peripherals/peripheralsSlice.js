@@ -4,6 +4,7 @@ const initialPeripheral = {
     name: '',
     description: '',
     computer_id: undefined,
+    asset_id: '',
 }
 
 export const peripheralsSlice = createSlice({
