@@ -1,37 +1,64 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
 
-export const initialUser = JSON.parse(localStorage.getItem('user')) ||{
-    id: 0,
+export const initialUser = {
     first_name: "",
     last_name: "",
+    username: "",
     email: "",
-    role: "",
-    assignments: []
+    password: "",
 };
 
 export const userSlice = createSlice({
     name: 'user',
     initialState: {
-        isCreate: false,
-        selectedUser: initialUser,
         users: [],
+        user: {},
+        userEdit: {},
+        loading: false,
+        error: null
     },
     reducers: {
-        loadUsers: (state, action) => {
+        usersLoading: (state) => {
+            state.loading = true
+        },
+        usersSuccess: (state, action) => {
             state.users = action.payload
+            state.loading = false
+            state.error = null
         },
-        change: (state, action) => {
-            state.isCreate = action.payload
+        usersError: (state, action) => {
+            state.loading = false
+            state.error = action.payload
         },
-        editUser: (state, action) => {
-            state.selectedUser = action.payload
-            state.isCreate = false
+        usersNew: (state, action) => {
+            state.user[action.payload.name] = action.payload.value
         },
-        deleteUserRedux: (state, action) => {
-            state.users = state.users.filter((user) => user.id !== action.payload)
+        usersClear: (state) => {
+            state.user = initialUser
         },
+        loadUsersEdit: (state, action) => {
+            state.userEdit = action.payload
+        },
+        changeUsersEdit: (state, action) => {
+            state.userEdit[action.payload.name] = action.payload.value
+        },
+        usersClearEdit: (state) => {
+            state.userEdit = {}
+        },
+        asignarUser: (state, action) => {
+            state.user.user_id = action.payload
+        }
     },
-    
 })
 
-export const { loadUsers, editUser, change, deleteUserRedux } = userSlice.actions
+export const {
+    usersLoading,
+    usersSuccess,
+    usersError,
+    usersNew,
+    usersClear,
+    loadUsersEdit,
+    changeUsersEdit,
+    usersClearEdit,
+    asignarUser
+} = userSlice.actions

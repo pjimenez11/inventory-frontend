@@ -32,12 +32,6 @@ const adminNavigate = [
         icon: "MdOutlineSettingsSuggest",
         current: false,
     },
-    {
-        name: "Usuarios",
-        href: "/inventory/usuarios",
-        icon: "FaRegUser",
-        current: false,
-    },
 ];
 
 

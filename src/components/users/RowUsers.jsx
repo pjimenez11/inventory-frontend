@@ -1,37 +1,37 @@
-import { MdCheck, MdOutlineCancel, MdOutlineCreate } from "react-icons/md";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import useUsers from "../../hooks/useUsers";
 
 export default function RowUsers({ user, index }) {
-  const navigate = useNavigate();
-
-  const onNavigate = (id) => {
-    navigate(`/inventory/usuarios/${id}`);
-  };
-
-  console.log();
-
+  const { handlerRemoveUsers } = useUsers();
   return (
     <tr key={index}>
       <td className="px-4 py-4 text-sm font-medium text-gray-200 whitespace-nowrap">
         {index + 1}
       </td>
-      <td className="px-4 py-4 text-sm text-gray-300 whitespace-nowrap">
+      <td className="px-4 py-4 text-sm text-gray-300 max-w-[250px]">
         {user.first_name}
       </td>
-      <td className="px-4 py-4 text-sm text-gray-300 whitespace-nowrap">
+      <td className="px-4 py-4 text-sm text-gray-300 max-w-[250px]">
         {user.last_name}
       </td>
-     
-      <td className="px-4 py-4 text-sm text-gray-300 whitespace-nowrap">
+      <td className="px-4 py-4  text-sm text-gray-300 max-w-[250px]">
         {user.email}
       </td>
-     
-      <td className="px-4 py-4 text-sm text-gray-300 whitespace-nowrap">
+      <td className="px-4 py-4  text-sm text-gray-300 max-w-[250px]">
         {user.username}
       </td>
+      <td className="px-4 py-4 text-sm text-gray-300 flex flex-col">
+        {user.roles.map((rol, index) => (
+          <span key={index}>{rol.name}</span>
+        ))}
+      </td>
+
       <td className="px-4 py-4 text-sm whitespace-nowrap">
         <div className="flex items-center gap-x-6">
-          <NavLink to={`/inventory/usuarios/editar/${user.id}`} className=" transition-colors duration-200 hover:text-yellow-500 text-gray-300 focus:outline-none">
+          <NavLink
+            to={`/inventory/computadoras/editar/${user.id}`}
+            className=" transition-colors duration-200 hover:text-yellow-500 text-gray-300 focus:outline-none"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -47,8 +47,11 @@ export default function RowUsers({ user, index }) {
               />
             </svg>
           </NavLink>
-          
-          <button className="transition-colors duration-200 hover:text-red-500 text-gray-300 focus:outline-none">
+
+          <button
+            className="transition-colors duration-200 hover:text-red-500 text-gray-300 focus:outline-none"
+            onClick={() => handlerRemoveUsers(user.id)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

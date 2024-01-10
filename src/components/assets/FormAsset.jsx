@@ -1,13 +1,11 @@
-import { TEInput } from "tw-elements-react";
 import useComputers from "../../hooks/useComputers";
 import useLaboratory from "../../hooks/useLaboratory";
-import { useEffect } from "react";
-import { useUser } from "../../hooks/useUser";
+import useUsers from "../../hooks/useUsers";
 
 export default function FormAsset({ values, onChage, onSubmit }) {
   const { computers } = useComputers();
   const { laboratories } = useLaboratory();
-  const { users } = useUser();
+  const { users } = useUsers();
   return (
     <form
       className="h-full w-2/3 bg-oxford-blue-900 rounded-lg p-6"
@@ -15,7 +13,7 @@ export default function FormAsset({ values, onChage, onSubmit }) {
     >
       <div className="grid grid-cols-1 gap-6 mt-4 ">
         <div>
-          <label className=" text-gray-200" for="name">
+          <label className=" text-gray-200" htmlFor="name">
             Nombre
           </label>
           <input
@@ -33,7 +31,7 @@ export default function FormAsset({ values, onChage, onSubmit }) {
         </div>
 
         <div>
-          <label className=" text-gray-200" for="description">
+          <label className=" text-gray-200" htmlFor="description">
             Descripción
           </label>
           <textarea
@@ -51,7 +49,7 @@ export default function FormAsset({ values, onChage, onSubmit }) {
         </div>
 
         <div>
-          <label className=" text-gray-200" for="description">
+          <label className=" text-gray-200" htmlFor="description">
             Cantidad
           </label>
           <input
@@ -139,7 +137,7 @@ export default function FormAsset({ values, onChage, onSubmit }) {
             </option>
             {users
               .filter(
-                (user) => !user.roles.some((role) => role.name === "STUDENT")
+                (user) => !user.roles.some((role) => role.name === "STUDENT" || role.name === "GUESS" || role.name === "ADMIN")
               )
               .map((user) => (
                 <option key={user.id} value={user.id}>
@@ -163,7 +161,7 @@ export default function FormAsset({ values, onChage, onSubmit }) {
           />
           <label
             className="inline-block pl-[0.15rem] hover:cursor-pointer text-gray-200"
-            for="checkboxDefault"
+            htmlFor="checkboxDefault"
           >
             Disponibilidad
           </label>

@@ -95,7 +95,7 @@ const useAssets = () => {
             description: asset.description, 
             stock: asset.stock,
             amount: asset.amount,
-            laboratory_id: asset.laboratory.id,
+            laboratory_id: asset.laboratory?.id,
             computer_id: asset.computer?.id,
             custodian_id: asset.custodian?.id, }))
     }

@@ -7,9 +7,6 @@ import NewLaboratory from "../components/laboratories/NewLaboratory";
 import { Assets } from "../components/assets/Assets";
 import NewAsset from "../components/assets/NewAsset";
 import EditAsset from "../components/assets/EditAsset";
-import Users from "../components/users/Users";
-import UpdateUser from "../components/users/UpdateUser";
-import CreateUser from "../components/users/CreateUser";
 import { Computers } from "../components/computers/Computers";
 import NewComputers from "../components/computers/NewComputers";
 import EditComputers from "../components/computers/EditComputers";
@@ -22,11 +19,13 @@ import usePeripherals from "../hooks/usePeripherals";
 import useAssets from "../hooks/useAssets";
 import EditPeripherals from "../components/peripherals/EditPeripherals";
 import { Suggestions } from "../components/suggestions/Suggestions";
-import FormSuggestions from "../components/suggestions/FormSuggestions";
 import NewSuggestions from "../components/suggestions/NewSuggestions";
 import useAuth from "../auth/hooks/useAuth";
 import useSuggestion from "../hooks/useSuggestion";
-import { useUser } from "../hooks/useUser";
+import useUsers from "../hooks/useUsers";
+import { Users } from "../components/users/Users";
+import NewUsers from "../components/users/NewUsers";
+import EditUsers from "../components/users/EditUsers";
 
 export default function AdminRoute() {
   const { handlerGetAll: getLaboratory } = useLaboratory();
@@ -35,7 +34,7 @@ export default function AdminRoute() {
   const { handlerGetAll: getAssets } = useAssets();
   const { handlerGetAll: getSuggestions , handlerAsinedSuggestor} = useSuggestion();
   const { login } = useAuth();
-  const {handlerGetUsers} = useUser();
+  const {handlerGetAll: getUsers} = useUsers();
 
   useEffect(() => {
     getLaboratory();
@@ -44,7 +43,7 @@ export default function AdminRoute() {
     getAssets();
     getSuggestions();
     handlerAsinedSuggestor(login.user.id);
-    handlerGetUsers();
+    getUsers();
   }, []);
 
   return (
@@ -82,10 +81,11 @@ export default function AdminRoute() {
             <Route path="/sugerencias" element={<Suggestions />} />
             <Route path="/sugerencias/nuevo" element={<NewSuggestions />} />
             <Route path="/sugerencias/editar/:id" element={<EditPeripherals />} />
-            
+
             <Route path="/usuarios" element={<Users />} />
-            <Route path="/usuarios/nuevo" element={<CreateUser />} />
-            <Route path="/usuarios/editar/:id" element={<UpdateUser />} />
+            <Route path="/usuarios/nuevo" element={<NewUsers />} />
+            <Route path="/usuarios/editar/:id" element={<EditUsers />} />
+
 
             <Route
               path="/*"

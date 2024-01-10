@@ -1,8 +1,13 @@
+import { useEffect } from "react";
+import useUsers from "../../hooks/useUsers";
 import RowUsers from "./RowUsers";
-import {useUser} from "../../hooks/useUser"; 
 
 export default function TableUsers() {
-    const { users } = useUser();
+  const { users, handlerGetAll } = useUsers();
+  useEffect(() => {
+    handlerGetAll();
+  }, []);
+
   return (
     <div className="overflow-x-auto w-full">
       <div className="inline-block min-w-full  align-middle ">
@@ -42,8 +47,16 @@ export default function TableUsers() {
                   scope="col"
                   className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-400"
                 >
-                  Nombre de usario
+                  Usuario
                 </th>
+
+                <th
+                  scope="col"
+                  className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-400"
+                >
+                  Roles
+                </th>
+
                 <th
                   scope="col"
                   className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-400"
@@ -51,7 +64,6 @@ export default function TableUsers() {
                   Acciones
                 </th>
               </tr>
-              
             </thead>
             <tbody className="divide-y divide-gray-700 bg-gray-900">
               {users.map((user, index) => (
