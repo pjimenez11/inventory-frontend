@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import { MdCheck, MdOutlineCancel } from "react-icons/md";
 import useSuggestion from "../../hooks/useSuggestion";
 
@@ -19,27 +18,36 @@ export default function RowSuggestions({ suggestion, index }) {
       <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
         <div
           className={`inline-flex items-center p-2 rounded-full gap-x-2 ${
-            suggestion.status == "open" && "text-emerald-500 bg-emerald-100/60"
+            suggestion.status == "closed" && "text-emerald-500 bg-emerald-100/60"
           } ${
-            suggestion.status == "closed" && "text-red-500 bg-red-100/60"
+            suggestion.status == "open" && "text-red-500 bg-red-100/60"
           } bg-gray-800`}
         >
-          {suggestion.status == "open" && <MdCheck className="w-4 h-4" />}
-          {suggestion.status == "closed" && (
+          {suggestion.status == "closed" && <MdCheck className="w-4 h-4" />}
+          {suggestion.status == "open" && (
             <MdOutlineCancel className="w-4 h-4" />
           )}
         </div>
       </td>
       <td className="px-4 py-4  text-sm text-gray-300 max-w-[250px]">
-        {suggestion.suggestor.username}
+        {suggestion.suggestor.first_name} {suggestion.suggestor.last_name}
+      </td>
+      <td className="px-4 py-4  text-sm text-gray-300 max-w-[250px]">
+        {suggestion.activities.length > 0 &&
+          `${suggestion.activities[0].actor.first_name} ${suggestion.activities[0].actor.last_name}`}
       </td>
       <td className="px-4 py-4  text-sm text-gray-300 max-w-[250px]">
         {suggestion.asset.name}
       </td>
+      <td className="px-4 py-4  text-sm text-gray-300 max-w-[250px]">
+        {suggestion.activities.length > 0 && suggestion.activities[0].message}
+      </td>
       <td className="px-4 py-4 text-sm whitespace-nowrap">
         <div className="flex items-center gap-x-6">
-          
-          <button className="transition-colors duration-200 hover:text-green-500 text-gray-300 focus:outline-none" onClick={() => handlerCreateActivity(suggestion.id)}>
+          <button
+            className="transition-colors duration-200 hover:text-green-500 text-gray-300 focus:outline-none"
+            onClick={() => handlerCreateActivity(suggestion.id)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

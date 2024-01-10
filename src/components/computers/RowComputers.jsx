@@ -9,6 +9,9 @@ export default function RowComputers({ computer, index }) {
         {index + 1}
       </td>
       <td className="px-4 py-4 text-sm text-gray-300 max-w-[250px]">
+        {computer.code}
+      </td>
+      <td className="px-4 py-4 text-sm text-gray-300 max-w-[250px]">
         {computer.name}
       </td>
       <td className="px-4 py-4  text-sm text-gray-300 max-w-[250px]">

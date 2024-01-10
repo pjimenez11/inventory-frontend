@@ -62,11 +62,13 @@ export default function FormSuggestions({ values, onChage, onSubmit }) {
             <option value="" disabled selected hidden>
               Seleccionar...
             </option>
-            {assets.map((asset) => (
-              <option key={asset.id} value={asset.id}>
-               {asset.id} {asset.name} {asset.laboratory.name}
-              </option>
-            ))}
+            {assets
+              .filter((asset) => asset.peripherals[0]?.computer_id == null)
+              .map((asset) => (
+                <option key={asset.id} value={asset.id}>
+                  {asset.id} - {asset.name} - {asset.laboratory?.name}
+                </option>
+              ))}
           </select>
         </div>
       </div>

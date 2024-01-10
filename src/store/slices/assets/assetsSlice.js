@@ -8,7 +8,7 @@ const initialAsset = {
     computer_id: undefined,
     custodian_id: undefined,
     custodian_type: "User",
-    laboratory_id: 1,
+    laboratory_id: "",
 }
 
 export const assetsSlice = createSlice({

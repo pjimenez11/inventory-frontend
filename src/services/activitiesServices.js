@@ -20,7 +20,7 @@ export const getByIdActivities = async (id) => {
 
 export const createActivities = async (activity) => {
     try {
-        return await inventoryApi.post(`${BASE_URL}`, {activity : {suggestion_id: activity}})
+        return await inventoryApi.post(`${BASE_URL}`, activity)
     } catch (error) {
         throw error
     }

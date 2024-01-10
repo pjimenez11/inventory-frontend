@@ -1,42 +1,44 @@
-import axios from "axios"
+import inventoryApi from "../apis/inventoryApi"
 
-export const createUser = async (user) => {
+const BASE_URL = '/api/v1/users'
+
+export const getAllUsers = async () => {
     try {
-        return await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/v1/users`, { user })
+        return await inventoryApi.get(`${BASE_URL}`)
     } catch (error) {
         throw error
     }
 }
 
-export const updateUser = async (user) => {
+export const getByIdUsers = async (id) => {
     try {
-        return await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/v1/users/${user.id}`, { user })
+        return await inventoryApi.get(`${BASE_URL}/${id}`)
     } catch (error) {
         throw error
     }
 }
 
-export const deleteUser = async (id) => {
+
+export const createUsers = async (user) => {
     try {
-        return await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/v1/users/${id}`)
+        return await inventoryApi.post(`${BASE_URL}`, {user})
     } catch (error) {
         throw error
     }
 }
 
-export const getUsers = async () => {
+export const updateUsers = async (users) => {
     try {
-        return await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/users`)
+        return await inventoryApi.put(`${BASE_URL}/${users.id}`, users)
     } catch (error) {
         throw error
     }
 }
 
-export const getUser = async (id) => {
+export const deleteUsers = async (id) => {
     try {
-        return await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/users/${id}`)
+        return await inventoryApi.delete(`${BASE_URL}/${id}`)
     } catch (error) {
         throw error
     }
 }
-

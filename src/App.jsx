@@ -10,6 +10,7 @@ function App() {
         <div className="flex">
           <AppRoutes />
         </div>
+        <button id="myCustomTrigger" className="z-50 fixed  top-0 right-1/2 text-white bg-gray-600 p-2 rounded-b-lg" >Sugerencias</button>
       </Provider>
     </>
   );

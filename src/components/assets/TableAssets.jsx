@@ -70,7 +70,9 @@ export default function TableAssets() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-700 bg-gray-900">
-              {assets.map((asset, index) => (
+              {assets
+              .filter(asset => asset.peripherals[0]?.computer_id == null)
+              .map((asset, index) => (
                 <RowAssets key={index} asset={asset} index={index} />
               ))}
             </tbody>

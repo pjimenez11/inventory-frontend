@@ -1,18 +1,17 @@
-import FormAsset from "./FormAsset";
-
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import useAssets from "../../hooks/useAssets";
+import useComputers from "../../hooks/useComputers";
+import FormComputers from "./FormUsers";
 
-export default function EditAssets() {
+export default function EditUsers() {
   const { id } = useParams();
 
   const {
-    modifyEditAssets,
-    assetEdit,
-    handlerUpdateAssets,
+    modifyEditComputers,
+    computerEdit,
+    handlerUpdateComputers,
     handlerGetById,
-  } = useAssets();
+  } = useComputers();
 
   useEffect(() => {
     if (id) {
@@ -20,26 +19,22 @@ export default function EditAssets() {
     }
   }, [id]);
 
-  const changeAssetParametres = () => {
-    modifyEditAssets({ name: e.target.name, value: e.target.value });
-  }
-
   const onChage = (e) => {
-    modifyEditAssets({ name: e.target.name, value: e.target.value });
+    modifyEditComputers({ name: e.target.name, value: e.target.value });
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    handlerUpdateAssets();
+    handlerUpdateComputers();
   };
 
   return (
     <section className="min-h-max flex flex-col gap-6 items-center pb-6">
       <h1 className="text-white text-center font-semibold text-lg">
-        Editar Periferico
+        Editar Computadora
       </h1>
-      <FormAsset
-        values={assetEdit}
+      <FormComputers
+        values={computerEdit}
         onChage={onChage}
         onSubmit={onSubmit}
       />

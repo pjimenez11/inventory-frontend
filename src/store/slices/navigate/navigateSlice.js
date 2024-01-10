@@ -16,13 +16,13 @@ const adminNavigate = [
     {
         name: "Computadoras",
         href: "/inventory/computadoras",
-        icon: "FaComputer",
+        icon: "PiComputerTowerBold",
         current: false,
     },
     {
         name: "Perifericos",
         href: "/inventory/perifericos",
-        icon: "FaComputer",
+        icon: "MdOutlineMouse",
         current: false,
     },
 
@@ -30,12 +30,6 @@ const adminNavigate = [
         name: "Sugerencias",
         href: "/inventory/sugerencias",
         icon: "MdOutlineSettingsSuggest",
-        current: false,
-    },
-    {
-        name: "Usuarios",
-        href: "/inventory/usuarios",
-        icon: "FaRegUser",
         current: false,
     },
 ];

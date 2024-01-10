@@ -19,7 +19,7 @@ const useAssets = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!',
+                text: 'No se logro obtener los bienes!',
             })
             dispach(assetsError(error))
         }
@@ -31,7 +31,13 @@ const useAssets = () => {
 
     const saveAssets = async () => {
         try {
-            await createAssets(asset)
+            //eliminar el id del laboratorio si es vacio
+            const createAsset = { ...asset };
+            if (createAsset.laboratory_id === "") {
+                delete createAsset.laboratory_id;
+            }
+            console.log(createAsset)
+            await createAssets(createAsset)
             dispach(assetsClear())
             navigate("/inventory/bienes")
         } catch (error) {
@@ -39,7 +45,7 @@ const useAssets = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!',
+                text: 'No se logro guardar!',
             })
         }
     }
@@ -58,7 +64,7 @@ const useAssets = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!',
+                text: 'No se logro actualizar!',
             })
         }
     }
@@ -72,7 +78,7 @@ const useAssets = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!',
+                text: 'No se logro eliminar!',
             })
         }
     }
@@ -83,13 +89,43 @@ const useAssets = () => {
             navigate("/inventory/bienes")
             return
         }
-        dispach(loadAssetsEdit(asset))
+        dispach(loadAssetsEdit({ 
+            id: asset.id, 
+            name: asset.name, 
+            description: asset.description, 
+            stock: asset.stock,
+            amount: asset.amount,
+            laboratory_id: asset.laboratory?.id,
+            computer_id: asset.computer?.id,
+            custodian_id: asset.custodian?.id, }))
     }
 
     const handlerRemoveAssets = async (id) => {
         try {
-            await removeAssets(id)
-            handlerGetAll()
+            const result = await Swal.fire({
+                icon: 'warning',
+                title: '¿Estas seguro de eliminar?',
+                text: 'No podras revertir esto!',
+                showCancelButton: true,
+                confirmButtonText: 'Si, eliminar!',
+                cancelButtonText: 'No, cancelar!',
+                reverseButtons: true
+            })
+            if (result.isConfirmed) {
+                await removeAssets(id)
+                handlerGetAll()
+                Swal.fire(
+                    'Eliminado!',
+                    'El bien ha sido eliminado.',
+                    'success'
+                )
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                Swal.fire(
+                    'Cancelado',
+                    'El bien no se elimino',
+                    'error'
+                )
+            }
         } catch (error) {
             console.log(error)
             Swal.fire({

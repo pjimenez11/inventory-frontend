@@ -7,8 +7,9 @@ import { HiOutlineQueueList } from "react-icons/hi2";
 import { RxDashboard } from "react-icons/rx";
 import { SiGoogleclassroom } from "react-icons/si";
 import { FaComputer } from "react-icons/fa6";
-import { MdOutlineSettingsSuggest } from "react-icons/md";
+import { MdOutlineMouse, MdOutlineSettingsSuggest } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa";
+import { PiComputerTowerBold } from "react-icons/pi";
 
 const useNavigated = () => {
 
@@ -38,7 +39,9 @@ const useNavigated = () => {
         "SiGoogleclassroom": SiGoogleclassroom,
         "FaComputer": FaComputer,
         "MdOutlineSettingsSuggest": MdOutlineSettingsSuggest,
-        "FaRegUser": FaRegUser
+        "FaRegUser": FaRegUser,
+        "MdOutlineMouse": MdOutlineMouse,
+        "PiComputerTowerBold": PiComputerTowerBold,
     };
 
     return { navigateOptions, handleNavigate, iconMap, rolesNavigate }
