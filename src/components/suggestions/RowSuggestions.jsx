@@ -31,15 +31,21 @@ export default function RowSuggestions({ suggestion, index }) {
         </div>
       </td>
       <td className="px-4 py-4  text-sm text-gray-300 max-w-[250px]">
-        {suggestion.suggestor.username}
+        {suggestion.suggestor.first_name} {suggestion.suggestor.last_name}
+      </td>
+      <td className="px-4 py-4  text-sm text-gray-300 max-w-[250px]">
+        {suggestion.activities.length > 0 &&
+          `${suggestion.activities[0].actor.first_name} ${suggestion.activities[0].actor.last_name}`}
       </td>
       <td className="px-4 py-4  text-sm text-gray-300 max-w-[250px]">
         {suggestion.asset.name}
       </td>
       <td className="px-4 py-4 text-sm whitespace-nowrap">
         <div className="flex items-center gap-x-6">
-          
-          <button className="transition-colors duration-200 hover:text-green-500 text-gray-300 focus:outline-none" onClick={() => handlerCreateActivity(suggestion.id)}>
+          <button
+            className="transition-colors duration-200 hover:text-green-500 text-gray-300 focus:outline-none"
+            onClick={() => handlerCreateActivity(suggestion.id)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
