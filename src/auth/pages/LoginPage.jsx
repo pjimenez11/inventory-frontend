@@ -19,11 +19,7 @@ export default function LoginPage() {
     <section className="min-h-screen w-full flex justify-center items-center p-4 ">
       <div className="rounded-lg bg-oxford-blue-950 shadow-lg sm:w-8/12 lg:w-5/12 w-full h-min px-4 text-neutral-100">
         <div className="text-center">
-          <img
-            className="mx-auto w-48 mt-12"
-            src="/logo.png"
-            alt="logo"
-          />
+          <img className="mx-auto w-48 mt-12" src="/logo.png" alt="logo" />
           <h4 className="mb-6 mt-1 pb-1 text-xl font-semibold">
             Nosotros somos LabSync
           </h4>
@@ -60,7 +56,7 @@ export default function LoginPage() {
             </label>
           </div>
 
-          <div className="mb-12 pb-1 pt-1 text-center">
+          <div className="mb-6 pb-1 pt-1 text-center">
             <TERipple rippleColor="light" className="w-full">
               <button
                 className="bg-oxford-blue-700 inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-semibold uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]"
@@ -71,6 +67,17 @@ export default function LoginPage() {
             </TERipple>
           </div>
         </form>
+        <div className="mb-12 text-center">
+          <p className="text-sm">
+            ¿No tienes cuenta?{" "}
+            <a
+              href="/sugerencias/nuevo"
+              className="text-primary hover:text-primary-dark"
+            >
+              Realizar sugerencia anonima
+            </a>
+          </p>
+        </div>
       </div>
     </section>
   );
