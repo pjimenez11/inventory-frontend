@@ -6,10 +6,16 @@ import { useUser } from "./hooks/useUser";
 import { useEffect } from "react";
 import useNavigated from "./hooks/useNavigated";
 import UserRoute from "./routes/UserRoute";
+import useAssets from "./hooks/useAssets";
+import NewSuggestionsAnonimo from "./components/suggestions/NewSuggestionsAnonimo";
 
 export default function AppRoutes() {
   const { login } = useAuth();
   const { rolesNavigate } = useNavigated();
+  const { handlerGetAll } = useAssets();
+  useEffect(() => {
+    handlerGetAll();
+  }, []);
   return (
     <>
       <Routes>
@@ -28,6 +34,7 @@ export default function AppRoutes() {
         ) : (
           <>
             <Route path="/*" element={<Navigate to="/login" />} />
+            <Route path="/sugerencias/nuevo" element={<NewSuggestionsAnonimo />} />
             <Route path="/login" element={<LoginPage />} />
           </>
         )}
