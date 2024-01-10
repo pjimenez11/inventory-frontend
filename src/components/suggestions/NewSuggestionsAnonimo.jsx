@@ -19,7 +19,7 @@ export default function NewSuggestionsAnonimo() {
     <section className="h-screen w-full flex flex-col gap-6 items-center justify-center pb-6">
       <div className="flex flex-col gap-6 items-center pb-6 w-2/3">
       <h1 className="text-white text-center font-semibold text-lg">
-        Nueva sugerencia
+        Nueva sugerencia anónima
       </h1>
       <FormSuggestions
         values={suggestion}
