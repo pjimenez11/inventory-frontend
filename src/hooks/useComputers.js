@@ -75,8 +75,30 @@ const useComputers = () => {
 
     const handlerRemoveComputer = async (id) => {
         try {
-            await removeComputers(id)
-            handlerGetAll()
+            const result = await Swal.fire({
+                icon: 'warning',
+                title: '¿Estas seguro de eliminar?',
+                text: 'No podras revertir esto!',
+                showCancelButton: true,
+                confirmButtonText: 'Si, eliminar!',
+                cancelButtonText: 'No, cancelar!',
+                reverseButtons: true
+            })
+            if (result.isConfirmed) {
+                await removeComputers(id)
+                handlerGetAll()
+                Swal.fire(
+                    '¡Eliminado!',
+                    'La computadora ha sido borrada.',
+                    'success'
+                )
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                Swal.fire(
+                    'Cancelado',
+                    'La computadora no se elimino',
+                    'error'
+                )
+            }
         } catch (error) {
             console.log(error)
             Swal.fire({
