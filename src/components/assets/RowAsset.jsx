@@ -46,7 +46,7 @@ export default function RowAssets({ asset, index }) {
         </div>
       </td>
       <td className="px-4 py-4 text-sm text-gray-300 max-w-[250px]">
-        {asset.laboratory.name}
+        {asset.laboratory?.name}
       </td>
       <td className="px-4 py-4 text-sm whitespace-nowrap">
         <div className="flex items-center gap-x-6">

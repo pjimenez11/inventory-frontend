@@ -91,7 +91,7 @@ export default function FormPeripherals({ values, onChage, onSubmit }) {
               .filter((asset) => asset.computer === null)
               .map((asset) => (
                 <option key={asset.id} value={asset.id}>
-                  {asset.id} - {asset.name} - {asset.laboratory.name}
+                  {asset.id} - {asset.name} - {asset.laboratory?.name}
                 </option>
               ))}
           </select>
