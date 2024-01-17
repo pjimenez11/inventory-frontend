@@ -8,6 +8,7 @@ import useAssets from "../hooks/useAssets";
 import NewSuggestions from "../components/suggestions/NewSuggestions";
 import useAuth from "../auth/hooks/useAuth";
 import useSuggestion from "../hooks/useSuggestion";
+import SidebarDestok from "../components/layout/SidebarDestok";
 
 export default function UserRoute() {
   const { handlerGetAll: getLaboratory } = useLaboratory();
